@@ -1,0 +1,353 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111111;
+    color: #DEDEDE;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    width: 100%;
+}
+.back-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.content-wrapper {
+    margin: 0px 120px 0px 120px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.languages {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    padding-top: 50px;
+}
+.lang-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+}
+.lang:hover {
+    color: #f0a694;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+}
+.logo {
+    margin-top: 30px;
+}
+.menu ul {
+    margin-top: 40px;
+    font-family: 'Lato', sans-serif;
+    font-weight:200;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu li {
+    margin-left: 48px;
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: #DEDEDE;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+.menu ul li a:hover {
+   color: #f0a694;
+}
+.main {
+    display: flex;
+}  
+.single-content {
+    display: flex;
+    flex-direction: column;
+}
+.single_body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h2,h3 {
+    font-weight: 200;
+    margin-bottom:30px;
+}
+.single-left_side {
+    width: 30%;
+    text-align: center;
+}
+.single-left_side img{
+   margin-top: 26px;
+}
+.single-right_side {
+   width: 70%;
+}
+.single_right_side p {
+    margin-bottom: 60px;
+}
+.single_right_side h2 {
+    margin-bottom: 100px;
+}
+.single-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    height:700px;
+}
+.single-footer h3 {
+    margin-right: 31%;
+}
+.video_recording {
+    margin-top: 100px;
+    border: 12px solid #BCC274;
+    width: 622px;
+}
+#backstage_gallery {
+    display: flex;
+    flex-direction: column;
+    margin-right: 3%;
+    margin-top: 0px;
+}
+.image_slides {
+    width: 622px;
+}
+.slide {
+    display: block;
+    width: 622px;
+    height: 303px;
+}
+.slide img {
+    width: 622px;
+    height: 303px;
+}
+.trumbnails {
+    display: flex;
+    width: 622px;
+}
+.trumbnail {
+    cursor: pointer;
+    width: 20%;
+    padding: 4px;
+}
+.trumbnail_image {
+    width: 100%;
+    height: 100%;
+} 
+footer {
+    display: flex;
+    justify-content: right;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+footer p {
+    font-size: 12px;
+}
+@media(max-width: 1440px) {
+    #backstage_gallery { 
+        margin-left: 15%;
+    }
+    .single-footer h3 {
+        margin-right: 28%;
+    }
+}
+@media(max-width: 1024px) {
+    body {
+        font-size: 14px;
+    }
+    .menu ul li a { 
+        font-size: 14px;
+    }
+    .single-left_side img{
+        margin-top: 22px;
+        width: 200px;
+        height: 300px;
+    }
+    
+    .single-footer h3 {
+        margin-right: 24%;
+    }
+    #backstage_gallery { 
+        margin-left: 30%;
+    }
+    .video_recording {
+        margin-top: 100px;
+        border: 12px solid #BCC274;
+        width: 522px;
+    }
+    .image_slides {
+        width: 522px;
+    }
+    .active {
+        width: 522px;
+        height: 260px;
+    }
+    .slide {
+        display: block;
+        width: 522px;
+        height: 260px;
+    }
+    .slide img {
+        width: 522px;
+        height: 260px;
+    }
+    .trumbnails {
+        display: flex;
+        width: 522px;
+    }
+    .trumbnail {
+        cursor: pointer;
+        width: 20%;
+        padding: 4px;
+    }
+    .trumbnail_image {
+        width: 100%;
+        height: 100%;
+    } 
+}
+@media(max-width: 768px) {
+    .single-left_side img{
+        margin-top: 22px;
+        width: 120px;
+        height: 200px;
+     }
+     .video_recording {
+        margin-top: 100px;
+        border: 12px solid #BCC274;
+        width:422px;
+    }
+    .image_slides {
+        width: 422px;
+    }
+    .active {
+        width: 422px;
+        height: 160px;
+    }
+    .slide {
+        display: block;
+        width: 422px;
+        height: 200px;
+    }
+    .slide img {
+        width: 422px;
+        height: 200px;
+    }
+    .trumbnails {
+        display: flex;
+        width: 422px;
+    }
+    #backstage_gallery { 
+        margin-left: 43%;
+    }
+    .single-footer h3 {
+        margin-right: 16%;
+    }
+}
+@media(max-width:425px) {
+    
+    .content-wrapper {
+        margin: 0px 40px 0px 40px;
+       
+    }
+    .header {
+        flex-wrap: wrap;
+    }
+    .menu ul li {
+        padding-bottom: 20px;
+    }
+    .single_body {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .single-left_side {
+        display:none;
+    }
+    .video_recording {
+        margin-top: 100px;
+        border: 12px solid #BCC274;
+        width:322px;
+    }
+    .image_slides {
+        width: 322px;
+    }
+    .active {
+        width: 322px;
+        height: 160px;
+    }
+    .slide {
+        display: block;
+        width: 322px;
+        height: 160px;
+    }
+    .slide img {
+        width: 322px;
+        height: 160px;
+    }
+    .trumbnails {
+        display: flex;
+        width: 322px;
+    }
+    #backstage_gallery { 
+        margin-left: 0%;
+    }
+    .single-footer h3 {
+        margin-right: 60%;
+    }
+}
+@media(max-width: 375px) {
+    .content-wrapper {
+        margin: 0px 20px 0px 20px;
+    }
+    .header {
+        flex-wrap: wrap;
+    }
+}
+@media(max-width:320px) { 
+    .content-wrapper {
+        margin: 0px 16px 0px 16px;
+    }
+    .video_recording {
+        margin-top: 100px;
+        border: 12px solid #BCC274;
+        width:280px;
+    }
+    .image_slides {
+        width: 280px;
+    }
+    .active {
+        width: 280px;
+        height: 140px;
+    }
+    .slide {
+        display: block;
+        width: 280px;
+        height: 140px;
+    }
+    .slide img {
+        width: 280px;
+        height: 140px;
+    }
+    .trumbnails {
+        display: flex;
+        width: 280px;
+    }
+    #backstage_gallery { 
+        margin-left: 0%;
+    }
+    .single-footer h3 {
+        margin-right: 60%;
+    }
+ }

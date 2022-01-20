@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111111;
+    color: #DEDEDE;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    width: 100%; 
+}
+.wrapper {
+    background-image: url(../img/background_image_home.png);
+    background-repeat: no-repeat;
+    max-width: 1920px;
+    height: 100%;
+    margin: 0 auto;
+}
+.content-wrapper {
+    margin: 0px 120px 0px 120px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.languages {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    padding-top: 50px;
+}
+.lang-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+}
+.lang:hover {
+    color: #f0a694;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+}
+.logo {
+    margin-top: 30px;
+}
+.menu ul{
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu li {
+    margin-left: 48px;
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: #DEDEDE;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    padding-bottom: 5px;
+}
+.menu ul li a:hover {
+    color: #f0a694;
+}
+.main {
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.right-side {
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+.autors_photo {
+    margin-top: 150px;
+    margin-left: 18%;
+}
+.camera-icon {
+    margin-right:20px;
+    padding-bottom: 52px;
+    transform: rotate(2deg); 
+    display: none;
+}
+p.quote {
+    font-family: 'Montserrat', sans-serif;
+    font-weight:200;
+    margin-top: 200px;
+    line-height: 150%;
+    width: 620px;
+}
+.biography {
+     text-align: center;
+      margin-top: 200px;
+}
+.biography h3{
+    font-weight:200;
+}
+footer {
+  display: flex;
+  justify-content: right;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+ footer p {
+     font-size:12px;
+}
+@media(max-width: 1440px) {
+    .wrapper {
+        background-image: url(../img/background_home_1440.png);
+        background-repeat: no-repeat;
+    }
+    p.quote { 
+        width: 580px;
+    }
+    .autors_photo {
+        margin-top: 80px;
+        width: 330px;
+        height: 413px;
+    }
+    .camera-icon {
+        margin-right: 42px;
+        padding-bottom:12px;
+        transform: rotate(10deg); 
+    }
+}
+@media(max-width:1024px) {
+    .wrapper {
+        background-image: url(../img/background_home_1024.png);
+        background-repeat: no-repeat;
+    }
+    .menu ul li a{
+        font-size: 14px;
+    }
+    p.quote {
+        font-size: 14px;
+        width: 360px;
+    }
+    .biography {
+        font-size: 14px;
+    }
+    .autors_photo {
+        margin-top: 80px;
+        width: 260px;
+        height: 313px;
+    }
+    .camera-icon {
+        margin-right: 42px;
+        padding-bottom:12px;
+        width: 100px;
+        height: 100px;
+        transform: rotate(10deg); 
+    }
+}
+@media(max-width:768px) {
+    .wrapper {
+        background-image:none;
+    }
+    .menu ul li {
+        padding-bottom: 20px;
+    }
+    .autors_photo {
+        margin-top: 40px;
+        margin-left: 0%;
+        width: 260px;
+        height: 313px;
+    }
+    p.quote {
+        margin-top: 40px;
+        text-align: left;
+        width: 200px;
+    }
+    .camera-icon {
+        display: none;
+    }
+}
+@media(max-width:425px) {
+    .wrapper {
+        background-image:none;
+    }
+    .content-wrapper {
+        margin: 0px 40px 0px 40px;
+    }
+    .header {
+        flex-wrap: wrap;
+    }
+    .menu ul li {
+        padding-bottom: 20px;
+    }
+    .main {
+        justify-content: center;
+    }
+    .autors_photo {
+        margin-left: 0%;
+        width: 260px;
+        height: 313px;
+    }
+    p.quote {
+        margin-top: 40px;
+        text-align: left;
+        width: 200px;
+    }
+    .camera-icon {
+        display: none;
+    }
+}
+@media(max-width: 375px) {
+    .content-wrapper {
+        margin: 0px 20px 0px 20px;
+    }
+    .header {
+        flex-wrap: wrap;
+    }
+}
+@media(max-width:320px) { 
+    .content-wrapper {
+        margin: 0px 16px 0px 16px;
+    }
+    .biography {
+        text-align: center;
+        margin-top: 60px;
+    }
+ }
