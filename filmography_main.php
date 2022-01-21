@@ -1,8 +1,8 @@
 
 <?php 
+ require('db.php');
+ ?>
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,13 +40,12 @@
                     </nav>
                 </div>
                 <div class="main">
-                    <!--Здесь перебор циклом php картинок фильма из БД SELECT ALL-->
-                    <img src="./img/The Great Sinner_poster.png" alt="" class="poster_image" id="0">
-                    <img src="./img/vlodke_poster_rus.png" alt=""class="poster_image">
-                    <img src="./img/The_World_For_All_poster_eng.png" alt=""class="poster_image">
-                    <img src="./img/2nd_Life_Poster.png" alt=""class="poster_image">
-                    <img src="./img/Apples_poster_winners_ENG.png" alt=""class="poster_image">
-                    <img src="./img/VideoOut_Poster_small.png" alt=""class="poster_image">
+                    
+                    <?php $movies = get_movies_All();
+                        foreach($movies as $movie): ?>
+                        <img src="<?php echo $movie['movie_poster']?>" alt="" class="poster_image" id="<?php echo $movie['movie_id']?>">
+
+                    <?php endforeach; ?>
                 </div>
                 <footer>
                     <p>Copyright &copy; 2022</p>
