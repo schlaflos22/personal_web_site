@@ -90,6 +90,8 @@ h2,h3 {
 }
 .single-left_side img{
    margin-top: 26px;
+   width:258px;
+   height: 388px;
 }
 .single-right_side {
    width: 70%;
