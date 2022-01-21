@@ -1,6 +1,12 @@
 <?php 
+require('db.php');
+$url = $_SERVER['REQUEST_URI'];
+parse_str($url, $get);
+$arr_ = array_flip($get);
+$id = array_key_last($arr_);
+echo $id;
 
-
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,28 +45,38 @@
                     </nav>
                 </div>
                 <div class="main">
+                <?php $movie = get_movie_by_id($id); 
+                
+                
+                 
+                        
+                     
+                
+                ?>
+
+                    <!--Сделать php вкрапления-->
                     <div class="single-content">
                         <div class="single_body">
                             <div class="single-left_side">
-                                <img src="./img/The Great Sinner_poster_jpeg_eng_mini.png" alt="">
+                                <img src="<?php echo $movie["movie_poster"]?>" alt="" id="<?php echo $movie["movie_id"]?>">
                             </div>
                             <div class="single-right_side">
-                                <h2>Игровой короткометражный фильм (14 мин)
-                                    Великий Грешник (The Great Sinner) (2022)
-                                </h2>
-                                <h3>Постпродакшн</h3>
-                                <p>Неофитка едет в храм к духовнику и на исповеди обнаруживает перед
-                                    собой слабоумного человека. Во всеуслышанье он кается в том, что «маму не
-                                    слушается». Исповедники потрясены его покаянием и чистотой веры. Ведь
-                                    самые тяжелые уроки смирения – послушание родителям.</p>
-                                <video class="video_recording" src="./file_example_MP4_480_1_5MG — копия.mp4" controls></video>
+                                <h2><?php echo $movie["movie_name"]?></h2>
+                                <p><?php echo $movie["movie_description"]?></p>
+                                <video class="video_recording" src="<?php echo $movie["movie_video"]?>" controls></video>
+                                <p><?php echo $movie["movie_awards"]?></p>
+                                <p><?php echo $movie["movie_festivals"]?></p>
                             </div>
                         </div>
                         <div class="single-footer">
-                            <h3>Backstage-фото</h3>
+                           
+                            <!--переделать вместо js динамики на php цикл перебирающий массив-->
                             <div id="backstage_gallery"></div>
                         </div>
                     </div>
+                   
+                    <?php 
+                             ?>
                 </div>
                 <footer>
                     <p>Copyright &copy; 2022</p>
