@@ -1,5 +1,5 @@
 <?php 
-
+ require('db.php');
 
 ?>
 <!DOCTYPE html>
@@ -44,44 +44,32 @@
                             <div id="btn-prev">
                                 <img src="./img/btn-prev.png" alt="">
                            </div>
-                           <div class="slide active">
-                                <img src="./img/barunya-left.png" alt="">
+                            <?php
+                                $projects =  get_projects_All();
+                                //var_dump($projects);
+                            ?>
+                            <?php foreach($projects as $project){?>
+                           <div class="slide">
+                                <img src="<?php echo $project["project_image"]?>" alt="">
                                 <div class="img-description">
-                                    <h4>Логлайн</h4>
-                                    Бизнес-леди ищет услады в своём заместителе Ржевецком, пока ее
-                                    внимание не привлекает молодой работяга Степан. Деньгами и
-                                    угрозами<br>
-                                    она заставляет его служить у нее личным водителем, каждый вечер
-                                    предаваясь с ним греху.<br>
-                                    Семья Степана поощряет это. Страдает не только жена Степана Марья.
-                                    Страдает и сам Степан. Не видя выхода из создавшейся ситуации, во
-                                    хмелю, он убивает жену, которая - единственная - любит его и не
-                                    может смириться с происходящим.<br>
-                                    
-                                    
-                                    <h4>Конфликт</h4>
-                                    вечное противоречие между желанием и долгом, между православными принципами и
-                                    грехом, между вседозволенностью и следованием внутренним принципам.
-                                    <h4>Идея</h4>
-                                    снять игровое кино (полный метр) по повести А. П. Чехова «Барыня», перенеся сюжет в
-                                    современные реалии: богатая владелица криптовалютного бизнеса, имеющая в своём
-                                    распоряжении целый IT-город, парк роскошных автомобилей, обсуживающий персонал,
-                                    развлекает себя всеми возможными способами, не обращая внимания на то, что идет
-                                    напролом, «перемалывая» вереницу человеческих жизней.
-                                    <h4>Актуальность</h4>
-                                    назревающие в обществе социальные и экономические противоречия, растущее
-                                    расслоение между населением страны как никогда может заставить задуматься людей об
-                                    уважении друг к другу, о том, что кроме денег, у человека есть душа, заставить заглянуть
-                                    внутрь себя и приглядеться друг к другу.
-                                    <h4>Почему я хочу снять этот фильм?</h4>
-                                    Потому что «болит» и откликается внутри, потому ранее я уже имела
-                                    этот опыт - работать с классическим текстом и переносить его в
-                                    сегодняшний день (короткометражный фильм «За яблочко» по
-                                    рассказу А. П. Чехова «За яблочки»), потому что не покидает надежда
-                                    хоть чуть-чуть сделать этот мир лучше и справедливее.  
+                                    <h4><?php echo $project["project_logline_h4"]?></h4>
+                                    <p><?php echo $project["project_logline_description"]?></p>
+                                    <h4><?php echo $project["project_conflict_h4"]?></h4>
+                                    <p><?php echo $project["project_conflict_description"]?></p>
+                                    <h4><?php echo $project["project_idea_h4"]?></h4>
+                                    <p><?php echo $project["project_idea_description"]?></p>
+                                    <h4><?php echo $project["project_purpose_h4"]?></h4>
+                                    <p><?php echo $project["project_purpose_description"]?></p>
+                                    <h4><?php echo $project["project_relevance_h4"]?></h4>
+                                    <p><?php echo $project["project_relevance_description"]?></p>
+                                    <h4><?php echo $project["project_uniqueness_h4"]?></h4>
+                                    <p><?php echo $project["project_uniqueness_description"]?></p>
+                                    <h4><?php echo $project["project_reason_h4"]?></h4>
+                                    <p><?php echo $project["project_reason_description"]?></p>
                                 </div>
                             </div>
-                           <div class="slide">
+                            <?php }?>
+                           <!--<div class="slide">
                                <img src="./img/for_three_days_page1.png" alt="">
                                <div class="img-description">
                                     <h4>Логлайн</h4>
@@ -123,8 +111,8 @@
                                     документальному кино и социальным темам в надежде хоть чуть-
                                     чуть сделать этот мир лучше.
                                 </div>
-                            </div>
-                            <div class="slide">
+                            </div>-->
+                           <!-- <div class="slide">
                                 <img src="./img/the_world_belongs_to_heroes_page1.png" alt="">
                                 <div class="img-description">
                                     <h4>Логлайн</h4>
@@ -161,7 +149,7 @@
                                     кино и социальным темам в надежде хоть чуть-чуть сделать этот
                                     мир лучше и помочь кому-то конкретным делом
                                 </div>
-                            </div>
+                            </div>-->
                             <div id="btn-next">
                                 <img src="./img/btn-next.png" alt="" >
                             </div>
