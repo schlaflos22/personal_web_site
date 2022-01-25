@@ -34,5 +34,11 @@ function get_projects_All(){
  
     
 }   
-
+function get_users_data() {
+    global $db;
+    $users = $db ->query("SELECT * FROM `users`");
+    foreach($users as $user) {
+        return $user;
+    }
+}
 ?>
