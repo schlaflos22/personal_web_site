@@ -45,14 +45,7 @@ echo $id;
                     </nav>
                 </div>
                 <div class="main">
-                <?php $movie = get_movie_by_id($id); 
-                
-                
-                 
-                        
-                     
-                
-                ?>
+                    <?php $movie = get_movie_by_id($id); ?>
 
                     <!--Сделать php вкрапления-->
                     <div class="single-content">
@@ -69,14 +62,29 @@ echo $id;
                             </div>
                         </div>
                         <div class="single-footer">
-                           
-                            <!--переделать вместо js динамики на php цикл перебирающий массив-->
-                            <div id="backstage_gallery"></div>
+                            <div id="backstage_gallery">
+                                <?php 
+                                $images = get_images_for_gallery($id);
+                                //var_dump($images);?>
+                                    
+                                <div class="image_slides">
+                                    <div class="slide active">
+                                        <?php foreach($images as  $image){?>
+                                            <img src="<?php echo $image['image']?>">
+                                        <?php break;}?> 
+                                    </div>
+                                </div>
+                                <div class="trumbnails">
+                                    <?php foreach($images as $image){?> 
+                                    <div class="trumbnail">
+                                        <img class="trumbnail_image" src="<?php echo $image["image"]?>" alt="">
+                                    </div>
+                                    <?php }?>
+                                </div>
+                            </div>
                         </div>
+                         
                     </div>
-                   
-                    <?php 
-                             ?>
                 </div>
                 <footer>
                     <p>Copyright &copy; 2022</p>
