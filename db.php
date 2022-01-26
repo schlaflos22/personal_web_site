@@ -1,4 +1,5 @@
 <?php 
+
 $dbhost = "localhost";
 $dbname = "movie_db";
 $username = "root";
@@ -41,4 +42,13 @@ function get_users_data() {
         return $user;
     }
 }
+
+    function get_count_of_elements(){
+        global $db;
+        $count_id = $db ->query("SELECT COUNT(*) FROM `movies`");
+        foreach($count_id as $count) {
+            return $count;
+        }
+       
+    }
 ?>
