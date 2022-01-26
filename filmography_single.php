@@ -1,7 +1,7 @@
 <?php 
 require('db.php');
 
-
+//подключить стили
 
 $url = $_SERVER['REQUEST_URI'];
 parse_str($url, $get);
@@ -22,7 +22,7 @@ echo $id;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/filmography_single.css" type="text/css">
-  
+
 </head>
 
 <body>
