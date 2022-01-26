@@ -51,4 +51,11 @@ function get_users_data() {
         }
        
     }
+     function get_count_of_projects() {
+        global $db;
+        $count_id = $db ->query("SELECT COUNT(*) FROM `projects`");
+        foreach($count_id as $count) {
+            return $count;
+        }
+     }
 ?>
