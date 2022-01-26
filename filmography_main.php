@@ -1,6 +1,7 @@
 
 <?php 
  require('db.php');
+ require("admin_db.php");
  ?>
 
 <!DOCTYPE html>
