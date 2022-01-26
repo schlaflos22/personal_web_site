@@ -1,5 +1,8 @@
 <?php 
 require('db.php');
+
+
+
 $url = $_SERVER['REQUEST_URI'];
 parse_str($url, $get);
 $arr_ = array_flip($get);
@@ -18,8 +21,10 @@ echo $id;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/filmography_single.css">
+   <link rel="stylesheet" href="css/filmography_single.css" type="text/css">
+  
 </head>
+
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
@@ -44,9 +49,10 @@ echo $id;
                         </ul>
                     </nav>
                 </div>
+                
                 <div class="main">
-                    <?php $movie = get_movie_by_id($id); ?>
-
+                <?php $movie = get_movie_by_id($id); ?>
+                
                     <!--Сделать php вкрапления-->
                     <div class="single-content">
                         <div class="single_body">
