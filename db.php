@@ -22,7 +22,7 @@ function get_movie_by_id($id) {
 function get_images_for_gallery($id){
     global $db;
     $images= $db ->query("SELECT b.image FROM backstage_images b
-    LEFT JOIN movies a ON  b.movie_id_ = a.movie_id
+    INNER JOIN movies a ON  b.movie_id_ = a.movie_id
     WHERE b.movie_id_= $id");
     return $images;
 }

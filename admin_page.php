@@ -30,10 +30,5 @@ echo("This is ADMIN PAGE!Welcome!");
                 <button onclick="location.href='admin_new_project.php'">Создать новую запись</button>
                 <button>Редактировать существующую</button>
             </div>
-            <div class="col-md-6 mt-6">
-                <h4>Фотографии</h4>
-                <button>Создать новую запись</button>
-                <button>Редактировать существующую</button>
-            </div>
         </div>
     </body>

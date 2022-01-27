@@ -71,13 +71,13 @@ echo $id;
                             <div id="backstage_gallery">
                                 <?php 
                                 $images = get_images_for_gallery($id);
-                                //var_dump($images);?>
+                                var_dump($images);?>
                                     
                                 <div class="image_slides">
                                     <div class="slide active">
-                                        <?php foreach($images as  $image){?>
-                                            <img src="<?php echo $image['image']?>">
-                                        <?php break;}?> 
+                                       
+                                            <img src="<?php echo $images[0]['image']?>">
+                                       
                                     </div>
                                 </div>
                                 <div class="trumbnails">

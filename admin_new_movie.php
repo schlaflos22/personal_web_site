@@ -2,7 +2,7 @@
 require('db.php');
 require('admin_db.php');
 //echo($_POST['movie_name']);
-if(isset($_POST)) {
+if($_POST) {
 
 
     $array_= array();
@@ -12,13 +12,21 @@ if(isset($_POST)) {
    $new_id = $id + 1;
    
     $movie_name = $_POST['movie_name'];
-    $movie_poster = $_POST['movie_poster'];
+    var_dump($_SERVER["DOCUMENT_ROOT"]);
+    $target_dir = $_SERVER["DOCUMENT_ROOT"]."/Movie/img";
+    $target_file = $target_dir . "/".basename($_FILES["movie_poster"]["name"]);
+    if(move_uploaded_file($_FILES["movie_poster"]["name"],$target_file)){
+        echo "yes";
+    }else {
+        echo "err";
+    }
+
     $movie_description = $_POST['movie_description'];
     $movie_video = $_POST['movie_video'];
     $movie_awards = $_POST['movie_awards'];
     $movie_festivals = $_POST['movie_festivals'];
     array_push($array_,$new_id,$movie_name,$movie_poster,$movie_description,$movie_video,$movie_awards,$movie_festivals);
-    var_dump($new_id);
+    //var_dump($new_id);
     add_movie_data_in_dataBase($array_); 
 }
 ?>
@@ -41,14 +49,15 @@ if(isset($_POST)) {
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-12 mt-6">
                 <h4>Фильмы</h4>
-                <form action="admin_new_movie.php" method="POST" class="col-md-12">
+                <form action="admin_new_movie.php" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
                     <input type="text" class="form-control mt-3" name ="movie_name" placeholder="Название">
-                    <input type="text" class="form-control mt-3" name ="movie_poster" placeholder="Постер">
+                    <input type="file" class="form-control mt-3"  name ="movie_poster" placeholder="Постер">
                     <textarea type="textarea" class="form-control mt-3" name ="movie_description" placeholder="Описание"></textarea>
                     <input type="text" class="form-control mt-3" name ="movie_video" placeholder="Видео">
                     <textarea type="textarea" class="form-control mt-3" name="movie_awards" placeholder="Награды"></textarea>
                     <textarea type="textarea" class="form-control mt-3" name ="movie_festivals" placeholder="Фестивали"></textarea>
+
                 </div>
                 <div class="col-md-6 mt-3">
                     <button type="submit">Добавить</button>
@@ -58,3 +67,4 @@ if(isset($_POST)) {
             
         </div>
     </body>
+</html>
