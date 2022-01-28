@@ -44,7 +44,7 @@
                     
                     <?php $movies = get_movies_All();
                         foreach($movies as $movie): ?>
-                        <img src="<?php echo $movie['movie_poster']?>" alt="" class="poster_image" id="<?php echo $movie['movie_id']?>">
+                        <img src="./img/<?php echo $movie['movie_poster']?>" alt="" class="poster_image" id="<?php echo $movie['movie_id']?>">
 
                     <?php endforeach; ?>
                 </div>
