@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbname = "movie_db";
 $username = "root";
-$password = "122";
+$password = "root";
 
 $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $username, $password);
 

@@ -15,6 +15,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/filmography_main.css">
+    <style>
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+        }
+        @media (max-width: 375px){
+            .movies {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        .movie {
+            grid-column: auto / span 1;
+        }
+        .movie img {
+            width: 100%;
+            padding: 0 !important;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -42,11 +63,15 @@
                 </div>
                 <div class="main">
                     
-                    <?php $movies = get_movies_All();
-                        foreach($movies as $movie): ?>
-                        <img src="./img/<?php echo $movie['movie_poster']?>" alt="" class="poster_image" id="<?php echo $movie['movie_id']?>">
+                    <div class="movies">
+                            <?php $movies = get_movies_All();
+                            foreach($movies as $movie): ?>
+                            <div class="movie">
+                                <img src="./img/<?php echo $movie['movie_poster']?>" alt="" class="poster_image" id="<?php echo $movie['movie_id']?>">
+                            </div>
+                            <?php endforeach; ?>
 
-                    <?php endforeach; ?>
+                    </div>
                 </div>
                 <footer>
                     <p>Copyright &copy; 2022</p>

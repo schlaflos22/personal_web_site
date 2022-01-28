@@ -24,11 +24,10 @@ if($_POST) {
     //var_dump($id_photo +1);
     $id_img = $id_photo + 1;
    //Загрузка файла поcтера в директорию img
-    $uploaddir = '/var/www/html/Movie/img/';
+    $uploaddir = $_SERVER["DOCUMENT_ROOT"].'/personal_web_site/img/';
     $uploadfile = $uploaddir . basename($_FILES['movie_poster']['name']);
 
     if (move_uploaded_file($_FILES['movie_poster']['tmp_name'], $uploadfile)) {
-        
         echo "Файл корректен и был успешно загружен.\n";
     } else {
         echo "Возможная атака с помощью файловой загрузки!\n";

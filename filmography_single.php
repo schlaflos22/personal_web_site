@@ -22,7 +22,28 @@ echo $id;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/filmography_single.css" type="text/css">
+    <style>
+        .single_body {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: 20px;
+            /*margin-top: 26px;*/
+        }
+        .single-left_side {
+            grid-column: auto / span 1;
+            width: 100%;
+        }
+        .single-right_side {
+            grid-column: auto / span 3;
+            width: 100%;
+        }
+        .single-left_side img {
+            width: 100%;    
+            object-fit: cover;
+            /*margin-top: 0px;*/
+        }
 
+    </style>
 </head>
 
 <body>

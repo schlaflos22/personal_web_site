@@ -1,7 +1,7 @@
 <?php 
 
 function add_movie_data_in_dataBase($array_) {
-$conn = mysqli_connect("localhost", "root", "122", "movie_db");
+$conn = mysqli_connect("localhost", "root", "root", "movie_db");
 if (!$conn) {
   die("Ошибка: " . mysqli_connect_error());
 }
