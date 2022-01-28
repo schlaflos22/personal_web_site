@@ -16,7 +16,7 @@ mysqli_close($conn);
 }
  
 function add_project_data_in_dataBase($array_) {
-$conn = mysqli_connect("localhost", "root", "122", "movie_db");
+$conn = mysqli_connect("localhost", "root", "root", "movie_db");
 if (!$conn) {
   die("Ошибка: " . mysqli_connect_error());
 }
@@ -30,8 +30,7 @@ $sql = "INSERT INTO projects VALUES ('$array_[0]', '$array_[1]', '$array_[2]', '
   mysqli_close($conn); 
 }
 function add_photos_data_in_dataBase($arr_photos) {
-  var_dump($arr_photos);
-  $conn = mysqli_connect("localhost", "root", "122", "movie_db");
+  $conn = mysqli_connect("localhost", "root", "root", "movie_db");
   if (!$conn) {
     die("Ошибка: " . mysqli_connect_error());
   }

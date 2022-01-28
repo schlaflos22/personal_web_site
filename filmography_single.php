@@ -7,7 +7,6 @@ $url = $_SERVER['REQUEST_URI'];
 parse_str($url, $get);
 $arr_ = array_flip($get);
 $id = array_key_last($arr_);
-echo $id;
 
   
 ?>
@@ -38,8 +37,9 @@ echo $id;
             width: 100%;
         }
         .single-left_side img {
-            width: 100%;    
+            width: 100%;
             object-fit: cover;
+            height: auto;
             /*margin-top: 0px;*/
         }
 
@@ -88,12 +88,12 @@ echo $id;
                                 <p><?php echo $movie["movie_festivals"]?></p>
                             </div>
                         </div>
+                        <?php
+                        $images = get_images_for_gallery($id);
+                        if ( $images ) {
+                        ?>
                         <div class="single-footer">
                             <div id="backstage_gallery">
-                                <?php 
-                                $images = get_images_for_gallery($id);
-                                ?>
-                                    
                                 <div class="image_slides">
                                     <div class="slide active">
                                        
@@ -110,7 +110,7 @@ echo $id;
                                 </div>
                             </div>
                         </div>
-                         
+                        <?php }?>
                     </div>
                 </div>
                 <footer>

@@ -63,7 +63,7 @@ function get_users_data() {
      }
      function get_count_of_images() {
         global $db;
-        $count_id = $db ->query("SELECT COUNT(*) FROM `backstage_images`");
+        $count_id = $db ->query("SELECT MAX(image_id) as id_photo FROM `backstage_images`");
         foreach($count_id as $count) {
             return $count;
         }

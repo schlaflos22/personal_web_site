@@ -8,61 +8,48 @@ if($_POST) {
     $id_arr = array_count_values($movie_id);
     $id = array_key_first($id_arr);
     $new_id = $id + 1;
-    $movie_poster = $_FILES['movie_poster']['name'];
+    $movie_poster = '';
     $movie_name = $_POST['movie_name'];
     $movie_description = $_POST['movie_description'];
     $movie_video = $_POST['movie_video'];
     $movie_awards = $_POST['movie_awards'];
     $movie_festivals = $_POST['movie_festivals'];
-    array_push($array_,$new_id,$movie_name,$movie_poster,$movie_description,$movie_video,$movie_awards,$movie_festivals);
+
     //var_dump($new_id);
-    add_movie_data_in_dataBase($array_); 
+
     $arr_photos = array();
-    $photo_count= get_count_of_images();
-    $id_photo_arr = array_count_values($photo_count);
-    $id_photo = array_key_first($id_photo_arr);
+    $id_photo = get_count_of_images();
+//    $id_photo_arr = array_count_values($photo_count);
+//    $id_photo = array_key_first($id_photo_arr);
     //var_dump($id_photo +1);
-    $id_img = $id_photo + 1;
    //Загрузка файла поcтера в директорию img
     $uploaddir = $_SERVER["DOCUMENT_ROOT"].'/personal_web_site/img/';
     $uploadfile = $uploaddir . basename($_FILES['movie_poster']['name']);
 
-    if (move_uploaded_file($_FILES['movie_poster']['tmp_name'], $uploadfile)) {
-        echo "Файл корректен и был успешно загружен.\n";
-    } else {
-        echo "Возможная атака с помощью файловой загрузки!\n";
-    }
+//    if (move_uploaded_file($_FILES['movie_poster']['tmp_name'], $uploadfile)) {
+//        $movie_poster = $_FILES['movie_poster']['name'];
+//    }
+//    array_push($array_,$new_id,$movie_name,$movie_poster,$movie_description,$movie_video,$movie_awards,$movie_festivals);
+//    add_movie_data_in_dataBase($array_);
 
-    
     if (isset($_FILES['photo'])) {
-        
-        
-        foreach ($_FILES["photo"]["name"] as $key => $error) {
-            
-            //array_push($arr_photos ,$id_img ,$_FILES["photo"]["name"][$key],$new_id);
-            //add_photos_data_in_dataBase($arr_photos);
-            if ($error == UPLOAD_ERR_OK) {
-                $uploaddir = '/var/www/html/Movie/img/';
-                
-                    $tmp_name = $_FILES["photo"]["tmp_name"][$key];
-                // for tmp_name ++
-                 var_dump(count($_FILES["photo"]["name"][$key]));
-                
-
-                var_dump(count($tmp_name));
-                $name = basename($_FILES["photo"]["name"][$key]);
-                if( move_uploaded_file($tmp_name, $uploaddir.$name)) {
-                    echo "Файл image корректен и был успешно загружен.\n";
-                }else {
-                    echo "NO::NO";
-                }
-               
-                
-            }
+        $num = 0;
+        foreach ($_FILES["photo"] as $key => $error) {
+            $id_img = intval($id_photo["id_photo"]) + 1;
+//            if ($error == UPLOAD_ERR_OK) {
+//                $uploaddir = $_SERVER["DOCUMENT_ROOT"].'/personal_web_site/img/';
+//                $tmp_name = $_FILES["photo"]["tmp_name"][$num];
+//                $name = basename($_FILES["photo"]["name"][$num]);
+//                if( move_uploaded_file($tmp_name, $uploaddir.$name)) {
+//                    array_push($arr_photos, $id_img ,$_FILES["photo"]["name"][$num],$new_id);
+//                    $num++;
+//                }
+//                if ( count($arr_photos) > 0 ){
+//                    add_photos_data_in_dataBase($arr_photos);
+//                }
+//            }
         }
     }
-  
-    
 }
 ?>
 <!DOCTYPE html>
@@ -97,7 +84,6 @@ if($_POST) {
                 <div class="mt-3 d-flex flex-column">
                     <h4>Загрузить фотографии в галерею</h4>
                     <input name="photo[]" type="file" multiple/>
-                    
                 </div>
                 <div class="col-md-6 mt-3">
                     <button type="submit">Добавить</button>
