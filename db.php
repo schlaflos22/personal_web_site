@@ -21,10 +21,13 @@ function get_movie_by_id($id) {
 }
 function get_images_for_gallery($id){
     global $db;
-    $images= $db ->query("SELECT b.image FROM backstage_images b
+    $images= $db ->prepare("SELECT b.image FROM backstage_images b
     INNER JOIN movies a ON  b.movie_id_ = a.movie_id
     WHERE b.movie_id_= $id");
-    return $images;
+    
+    $images->execute();
+    $result = $images->fetchAll();
+    return $result;
 }
 
 function get_projects_All(){
@@ -54,6 +57,13 @@ function get_users_data() {
      function get_count_of_projects() {
         global $db;
         $count_id = $db ->query("SELECT COUNT(*) FROM `projects`");
+        foreach($count_id as $count) {
+            return $count;
+        }
+     }
+     function get_count_of_images() {
+        global $db;
+        $count_id = $db ->query("SELECT COUNT(*) FROM `backstage_images`");
         foreach($count_id as $count) {
             return $count;
         }
