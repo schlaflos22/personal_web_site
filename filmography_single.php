@@ -57,7 +57,7 @@ echo $id;
                     <div class="single-content">
                         <div class="single_body">
                             <div class="single-left_side">
-                                <img src="<?php echo $movie["movie_poster"]?>" alt="" id="<?php echo $movie["movie_id"]?>">
+                                <img src="./img/<?php echo $movie["movie_poster"]?>" alt="" id="<?php echo $movie["movie_id"]?>">
                             </div>
                             <div class="single-right_side">
                                 <h2><?php echo $movie["movie_name"]?></h2>
@@ -71,7 +71,7 @@ echo $id;
                             <div id="backstage_gallery">
                                 <?php 
                                 $images = get_images_for_gallery($id);
-                                var_dump($images);?>
+                                ?>
                                     
                                 <div class="image_slides">
                                     <div class="slide active">
