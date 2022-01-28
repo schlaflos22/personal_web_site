@@ -29,6 +29,21 @@ $sql = "INSERT INTO projects VALUES ('$array_[0]', '$array_[1]', '$array_[2]', '
   }
   mysqli_close($conn); 
 }
+function add_photos_data_in_dataBase($arr_photos) {
+  var_dump($arr_photos);
+  $conn = mysqli_connect("localhost", "root", "122", "movie_db");
+  if (!$conn) {
+    die("Ошибка: " . mysqli_connect_error());
+  }
+  $sql = "INSERT INTO backstage_images VALUES ('$arr_photos[0]', '$arr_photos[1]', '$arr_photos[2]')";
+  if(mysqli_query($conn, $sql)){
+      echo "Данные успешно добавлены";
+      
+  } else{
+      echo "Ошибка: " . mysqli_error($conn);
+  }
+  mysqli_close($conn); 
+  }
 ?>
 
 
