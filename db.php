@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbname = "movie_db";
 $username = "root";
-$password = "root";
+$password = "122";
 
 $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $username, $password);
 
@@ -21,12 +21,11 @@ function get_movie_by_id($id) {
 }
 function get_images_for_gallery($id){
     global $db;
-    $images= $db ->prepare("SELECT b.image FROM backstage_images b
-    INNER JOIN movies a ON  b.movie_id_ = a.movie_id
-    WHERE b.movie_id_= $id");
+    $images= $db ->prepare("SELECT * FROM `backstage_images` 
+    WHERE `movie_id`= $id");
     
     $images->execute();
-    $result = $images->fetchAll();
+   $result = $images->fetchAll();
     return $result;
 }
 
@@ -61,11 +60,6 @@ function get_users_data() {
             return $count;
         }
      }
-     function get_count_of_images() {
-        global $db;
-        $count_id = $db ->query("SELECT MAX(image_id) as id_photo FROM `backstage_images`");
-        foreach($count_id as $count) {
-            return $count;
-        }
-     }
+     
+     
 ?>
