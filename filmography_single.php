@@ -83,34 +83,35 @@ $id = array_key_last($arr_);
                             <div class="single-right_side">
                                 <h2><?php echo $movie["movie_name"]?></h2>
                                 <p><?php echo $movie["movie_description"]?></p>
-                                <video class="video_recording" src="<?php echo $movie["movie_video"]?>" controls></video>
+                               <iframe width="560" height="315" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <p><?php echo $movie["movie_awards"]?></p>
                                 <p><?php echo $movie["movie_festivals"]?></p>
                             </div>
                         </div>
                         <?php
                         $images = get_images_for_gallery($id);
-                        if ( $images ) {
+                       if ( $images ) {
+                           // var_dump($images[0]['image']);
                         ?>
                         <div class="single-footer">
                             <div id="backstage_gallery">
                                 <div class="image_slides">
                                     <div class="slide active">
                                        
-                                            <img src="<?php echo $images[0]['image']?>">
+                                            <img src="img/<?php echo $images[0]['image']?>">
                                        
                                     </div>
                                 </div>
                                 <div class="trumbnails">
                                     <?php foreach($images as $image){?> 
                                     <div class="trumbnail">
-                                        <img class="trumbnail_image" src="<?php echo $image["image"]?>" alt="">
+                                        <img class="trumbnail_image" src="img/<?php echo $image["image"]?>" alt="">
                                     </div>
                                     <?php }?>
                                 </div>
                             </div>
                         </div>
-                        <?php }?>
+                       <?php }?>
                     </div>
                 </div>
                 <footer>
