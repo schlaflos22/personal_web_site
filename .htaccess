@@ -1,0 +1,19 @@
+php_value file_uploads On
+ 
+# Максимальное время выполнения скрипта в секундах
+php_value max_execution_time 60
+ 
+# Максимальное потребление памяти одним скриптом
+php_value memory_limit 64M
+ 
+# Максимально допустимый размер данных отправляемых методом POST
+php_value post_max_size 50M
+ 
+# Папка для хранения файлов во время загрузки
+php_value upload_tmp_dir home/user/temp
+ 
+# Максимальный размер загружаемого файла
+php_value upload_max_filesize 8M
+ 
+# Максимально разрешённое количество одновременно загружаемых файлов
+php_value max_file_uploads 10
