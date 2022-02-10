@@ -1,16 +1,32 @@
 <?php 
+// Разрешение на загрузку файлов
+ini_set('file_uploads', 'On');
+ 
+// Максимальное время выполнения скрипта в секундах
+ini_set('max_execution_time', '60');
+ 
+// Максимальное потребление памяти одним скриптом
+ini_set('memory_limit', '64M');
+ 
+// Максимально допустимый размер данных отправляемых методом POST
+ini_set('post_max_size', '50M');
+ 
+// Папка для хранения файлов во время загрузки
+ini_set('upload_tmp_dir', 'home/user/temp');
+ 
+// Максимальный размер загружаемого файла
+ini_set('upload_max_filesize', '8M');
+ 
+// Максимально разрешённое количество одновременно загружаемых файлов
+ini_set('max_file_uploads', '10');
 require('db.php');
 require('admin_db.php');
-if(isset($_POST)) {
-
+if($_POST) {
 
     $array_= array();
-   $project_id =get_count_of_projects();
-   $id_arr = array_count_values($project_id);
-   $id = array_key_first($id_arr);
-   $new_id = $id + 1;
-   
-    $project_image = $_POST['image'];
+  
+   var_dump($array_);
+    $project_image = $_FILES['image']['name'];
     $project_logline_h4= $_POST['logline_h4'];
     $project_logline = $_POST['logline'];
     $project_conflict_h4= $_POST['conflict_h4'];
@@ -26,9 +42,26 @@ if(isset($_POST)) {
     $project_uniqueness_h4= $_POST['uniqueness_h4'];
     $project_uniqueness = $_POST['uniqueness'];
    
-    array_push($array_,$new_id,$project_image,$project_logline_h4,$project_logline,$project_conflict_h4,$project_conflict,$project_idea_h4,$project_idea,$project_relevance_h4,$project_relevance,$project_reason_h4,$project_reason,$project_purpose_h4, $project_purpose,$project_uniqueness_h4, $project_uniqueness);
-    var_dump($new_id);
-    add_project_data_in_dataBase($array_); 
+     
+    
+    if($_FILES['image'] && !$_FILES['image']['error']) {
+        $uploaddir = '/var/www/html/personal_web_site/img/';
+        $upload_path = $uploaddir.basename($_FILES['image']['name']);
+        $tmp_name = $_FILES['image']['tmp_name'];
+        //echo 'Некоторая отладочная информация:';
+       // var_dump(copy($_FILES['image']['tmp_name'],$upload_path));
+        //echo '<pre>';
+        if (copy($_FILES['image']['tmp_name'],$upload_path)) {
+            array_push($array_,$project_image,$project_logline_h4,$project_logline,$project_conflict_h4,$project_conflict,$project_idea_h4,$project_idea,$project_relevance_h4,$project_relevance,$project_reason_h4,$project_reason,$project_purpose_h4, $project_purpose,$project_uniqueness_h4, $project_uniqueness);
+            var_dump($new_id);
+            add_project_data_in_dataBase($array_);
+           
+           echo "Файл корректен и был успешно загружен.\n";
+        } else {
+           echo "Возможная атака с помощью файловой загрузки!\n";
+        }
+    }
+    ;
 }
 
 ?>
@@ -51,9 +84,9 @@ if(isset($_POST)) {
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-12 mt-6">
                 <h4>Проекты</h4>
-                <form action="admin_new_project.php" method="POST" class="col-md-12">
+                <form action="<?php $PHP_SELF ?>" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
-                    <input type="text" class="form-control mt-3" name ="image" placeholder="Изображение">
+                    <input type="file" class="form-control mt-3" name ="image" placeholder="Изображение">
                     <input type="text" class="form-control mt-3" name ="logline_h4" placeholder="Логлайн h4">
                     <textarea type="textarea" class="form-control mt-3" name ="logline" placeholder="Логлайн"></textarea>
                     <input type="text" class="form-control mt-3" name ="conflict_h4" placeholder="Конфликт_h4">
