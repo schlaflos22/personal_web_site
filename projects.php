@@ -1,5 +1,6 @@
 <?php 
  require('db.php');
+ 
 
 ?>
 <!DOCTYPE html>
@@ -50,22 +51,22 @@
                             ?>
                             <?php foreach($projects as $project){?>
                            <div class="slide">
-                                <img src="<?php echo $project["project_image"]?>" alt="">
+                                <img src="./img/<?php echo $project["project_image"]?>" alt="">
                                 <div class="img-description">
                                     <h4><?php echo $project["project_logline_h4"]?></h4>
-                                    <p><?php echo $project["project_logline_description"]?></p>
+                                    <p><?php echo $project["project_logline"]?></p>
                                     <h4><?php echo $project["project_conflict_h4"]?></h4>
-                                    <p><?php echo $project["project_conflict_description"]?></p>
+                                    <p><?php echo $project["project_conflict"]?></p>
                                     <h4><?php echo $project["project_idea_h4"]?></h4>
-                                    <p><?php echo $project["project_idea_description"]?></p>
+                                    <p><?php echo $project["project_idea"]?></p>
                                     <h4><?php echo $project["project_purpose_h4"]?></h4>
-                                    <p><?php echo $project["project_purpose_description"]?></p>
+                                    <p><?php echo $project["project_purpose"]?></p>
                                     <h4><?php echo $project["project_relevance_h4"]?></h4>
-                                    <p><?php echo $project["project_relevance_description"]?></p>
+                                    <p><?php echo $project["project_relevance"]?></p>
                                     <h4><?php echo $project["project_uniqueness_h4"]?></h4>
-                                    <p><?php echo $project["project_uniqueness_description"]?></p>
+                                    <p><?php echo $project["project_uniqueness"]?></p>
                                     <h4><?php echo $project["project_reason_h4"]?></h4>
-                                    <p><?php echo $project["project_reason_description"]?></p>
+                                    <p><?php echo $project["project_reason"]?></p>
                                 </div>
                             </div>
                             <?php }?>
