@@ -1,55 +1,103 @@
 <?php 
+// Разрешение на загрузку файлов
+ini_set('file_uploads', 'On');
+ 
+// Максимальное время выполнения скрипта в секундах
+ini_set('max_execution_time', '60');
+ 
+// Максимальное потребление памяти одним скриптом
+ini_set('memory_limit', '64M');
+ 
+// Максимально допустимый размер данных отправляемых методом POST
+ini_set('post_max_size', '50M');
+ 
+// Папка для хранения файлов во время загрузки
+ini_set('upload_tmp_dir', 'home/user/temp');
+ 
+// Максимальный размер загружаемого файла
+ini_set('upload_max_filesize', '8M');
+ 
+// Максимально разрешённое количество одновременно загружаемых файлов
+ini_set('max_file_uploads', '10');
 require('db.php');
 require('admin_db.php');
+
+
 //echo($_POST['movie_name']);
-if($_POST) {
+if($_POST && $_FILES['files']) {
     $array_= array();
     $movie_id =get_count_of_elements();
     $id_arr = array_count_values($movie_id);
     $id = array_key_first($id_arr);
     $new_id = $id + 1;
-    $movie_poster = '';
+    $movie_poster = $_FILES['movie_poster']['name'];
     $movie_name = $_POST['movie_name'];
     $movie_description = $_POST['movie_description'];
     $movie_video = $_POST['movie_video'];
     $movie_awards = $_POST['movie_awards'];
     $movie_festivals = $_POST['movie_festivals'];
-
-    //var_dump($new_id);
-
-    $arr_photos = array();
-    $id_photo = get_count_of_images();
-//    $id_photo_arr = array_count_values($photo_count);
-//    $id_photo = array_key_first($id_photo_arr);
-    //var_dump($id_photo +1);
+     
+    
    //Загрузка файла поcтера в директорию img
-    $uploaddir = $_SERVER["DOCUMENT_ROOT"].'/personal_web_site/img/';
-    $uploadfile = $uploaddir . basename($_FILES['movie_poster']['name']);
-
-//    if (move_uploaded_file($_FILES['movie_poster']['tmp_name'], $uploadfile)) {
-//        $movie_poster = $_FILES['movie_poster']['name'];
-//    }
-//    array_push($array_,$new_id,$movie_name,$movie_poster,$movie_description,$movie_video,$movie_awards,$movie_festivals);
-//    add_movie_data_in_dataBase($array_);
-
-    if (isset($_FILES['photo'])) {
-        $num = 0;
-        foreach ($_FILES["photo"] as $key => $error) {
-            $id_img = intval($id_photo["id_photo"]) + 1;
-//            if ($error == UPLOAD_ERR_OK) {
-//                $uploaddir = $_SERVER["DOCUMENT_ROOT"].'/personal_web_site/img/';
-//                $tmp_name = $_FILES["photo"]["tmp_name"][$num];
-//                $name = basename($_FILES["photo"]["name"][$num]);
-//                if( move_uploaded_file($tmp_name, $uploaddir.$name)) {
-//                    array_push($arr_photos, $id_img ,$_FILES["photo"]["name"][$num],$new_id);
-//                    $num++;
-//                }
-//                if ( count($arr_photos) > 0 ){
-//                    add_photos_data_in_dataBase($arr_photos);
-//                }
-//            }
+    
+    if(!empty($_FILES['movie_poster'] && !$_FILES['movie_poster']['error'])) {
+        $uploaddir = '/var/www/html/personal_web_site/img/';
+        $upload_path = $uploaddir.basename($_FILES['movie_poster']['name']);
+        $tmp_name = $_FILES['movie_poster']['tmp_name'];
+        //echo 'Некоторая отладочная информация:';
+        var_dump(copy($_FILES['movie_poster']['tmp_name'],$upload_path));
+        //echo '<pre>';
+        if (copy($_FILES['movie_poster']['tmp_name'],$upload_path)) {
+            
+            array_push($array_,$new_id,$movie_name,$movie_poster,$movie_description,$movie_video,$movie_awards,$movie_festivals);
+           add_movie_data_in_dataBase($array_);
+           
+           echo "Файл корректен и был успешно загружен.\n";
+        } else {
+           echo "Возможная атака с помощью файловой загрузки!\n";
         }
     }
+    ;
+  
+   
+   
+        
+     
+      
+            
+       for($i =0;$i<count($_FILES['files']);$i++) {
+       
+        
+        
+            if (!empty($_FILES['files']['name'][$i])) {
+               if (file_exists('/var/www/html/personal_web_site/img'.$_FILES['files']['name'][$i])) {
+                   echo 'Hey, File already exists at uploads/' . $_FILES['files']['name'][$i] . "\n";
+               } else {
+                
+           $uploadPath= '/var/www/html/personal_web_site/img/'."".basename($_FILES['files']['name'][$i]);
+                  if(copy($_FILES['files']['tmp_name'][$i], $uploadPath)) {
+                    echo 'File successfully uploaded to uploads/'. "</br>";
+                    //var_dump($new_id);
+                    //var_dump($file_name);
+                        $file_name = $_FILES['files']['name'][$i];
+                        //array_push($arr_photos,);
+                        
+                        add_photos_data_in_dataBase($file_name,$new_id);
+                        
+                    
+                  }
+                   
+               }
+           }
+
+       }
+       
+      
+         
+
+        
+   
+    
 }
 ?>
 <!DOCTYPE html>
@@ -71,7 +119,7 @@ if($_POST) {
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-12 mt-6">
                 <h4>Фильмы</h4>
-                <form action="admin_new_movie.php" enctype="multipart/form-data" method="POST" class="col-md-12">
+                <form action="<?php $PHP_SELF ?>" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
                     <input type="text" class="form-control mt-3" name ="movie_name" placeholder="Название">
                     <input type="file" class="form-control mt-3"  name ="movie_poster" placeholder="Постер">
@@ -80,15 +128,16 @@ if($_POST) {
                     <textarea type="textarea" class="form-control mt-3" name="movie_awards" placeholder="Награды"></textarea>
                     <textarea type="textarea" class="form-control mt-3" name ="movie_festivals" placeholder="Фестивали"></textarea>
 
-                </div>
+                </div>      
                 <div class="mt-3 d-flex flex-column">
                     <h4>Загрузить фотографии в галерею</h4>
-                    <input name="photo[]" type="file" multiple/>
+                    <input name="files[]" type="file" multiple/>
                 </div>
                 <div class="col-md-6 mt-3">
                     <button type="submit">Добавить</button>
                 </div>
                 </form>
+                
             </div>
             
         </div>
