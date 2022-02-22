@@ -83,7 +83,7 @@ if($_POST) {
     <body>
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-12 mt-6">
-                <h4>Проекты</h4>
+                <h4>Проект</h4>
                 <form action="<?php $PHP_SELF ?>" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
                     <input type="file" class="form-control mt-3" name ="image" placeholder="Изображение">
