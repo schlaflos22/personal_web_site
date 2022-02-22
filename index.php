@@ -45,8 +45,8 @@
                         ведёт за <br>собой. Он знает чуть-чуть больше, чем остальные.</p>
                         </div>
                     <div class="right-side">
-                       <!-- <img src="img/camera_left_home.png" alt="" class="camera-icon">-->
-                        <img src="img/Ksenia_Roganova_and_Beriozka 2.png" alt="" class="autors_photo">
+                       <!--<img src="img/camera_left_home.png" alt="" class="camera-icon">-->
+                    <img src="img/Ksenia_Roganova_and_Beriozka 2-01 1.png" alt="" class="autors_photo">
                     </div>
                 </div>
                 <div class="biography">
