@@ -10,6 +10,14 @@ body {
     font-weight:200;
     width: 100%;
 }
+.wrapper {
+    background-image: url(../img/background_alternative.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 1920px;
+    
+    margin: 0 auto;
+}
 .back-wrapper {
     max-width: 1920px;
     margin: 0 auto;
