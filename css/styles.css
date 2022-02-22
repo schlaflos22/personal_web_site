@@ -4,23 +4,26 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #111111;
-    color: #DEDEDE;
+    background-color: #3d3d3d;
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:500;
     width: 100%; 
 }
 .wrapper {
-    background-image: url(../img/background_image_home.png);
+    background-image: url(../img/background_alternative.png);
     background-repeat: no-repeat;
+    background-size: cover;
     max-width: 1920px;
-    height: 100%;
+    
     margin: 0 auto;
 }
+
 .content-wrapper {
     margin: 0px 120px 0px 120px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
+    
 }
 .languages {
     display: flex;
@@ -41,7 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:400;
 }
 .logo {
     margin-top: 30px;
@@ -63,7 +66,7 @@ body {
     color: #DEDEDE;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:400;
     padding-bottom: 5px;
 }
 .menu ul li a:hover {
@@ -78,12 +81,11 @@ body {
 .right-side {
     display: flex;
     align-items:center;
-    justify-content: flex-start;
+    justify-content:space-between;
 }
-.autors_photo {
-    margin-top: 150px;
-    margin-left: 18%;
-}
+/*.autors_photo {
+   
+}*/
 .camera-icon {
     margin-right:20px;
     padding-bottom: 52px;
@@ -92,30 +94,33 @@ body {
 }
 p.quote {
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:400;
     margin-top: 200px;
+   
     line-height: 150%;
     width: 620px;
 }
 .biography {
-     text-align: center;
+   
+     text-align:center;
       margin-top: 200px;
+      margin-left: 0px;
 }
 .biography h3{
-    font-weight:200;
+    font-weight:400;
 }
 footer {
   display: flex;
   justify-content: right;
   margin-top: 100px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
  footer p {
      font-size:12px;
 }
 @media(max-width: 1440px) {
     .wrapper {
-        background-image: url(../img/background_home_1440.png);
+        background-image: url(../img/background_alternative.png);
         background-repeat: no-repeat;
     }
     p.quote { 
@@ -134,7 +139,7 @@ footer {
 }
 @media(max-width:1024px) {
     .wrapper {
-        background-image: url(../img/background_home_1024.png);
+        background-image: url(../img/background_alternative.png);
         background-repeat: no-repeat;
     }
     .menu ul li a{
@@ -161,9 +166,9 @@ footer {
     }
 }
 @media(max-width:768px) {
-    .wrapper {
+    /*.wrapper {
         background-image:none;
-    }
+    }*/
     .menu ul li {
         padding-bottom: 20px;
     }
@@ -183,9 +188,9 @@ footer {
     }
 }
 @media(max-width:425px) {
-    .wrapper {
+    /*.wrapper {
         background-image:none;
-    }
+    }*/
     .content-wrapper {
         margin: 0px 40px 0px 40px;
     }
