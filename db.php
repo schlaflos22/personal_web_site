@@ -28,6 +28,11 @@ function get_images_for_gallery($id){
    $result = $images->fetchAll();
     return $result;
 }
+function get_image_id($id) {
+    global $db;
+    $images= $db -> query("SELECT * FROM `backstage_images` WHERE `movie_id`=$id ");
+    return $images;
+}
 
 function get_projects_All(){
     global $db;
@@ -36,7 +41,13 @@ function get_projects_All(){
         return $projects;
  
     
-}   
+} 
+function get_project_for_id($id)  {
+    global $db;
+    $project= $db ->query("SELECT * FROM `projects` WHERE `project_id`=$id");
+    
+        return $project;
+} 
 function get_users_data() {
     global $db;
     $users = $db ->query("SELECT * FROM `users`");
