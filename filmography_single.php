@@ -98,14 +98,14 @@ $id = array_key_last($arr_);
                                 <div class="image_slides">
                                     <div class="slide active">
                                        
-                                            <img src="img/<?php echo $images[0]['image']?>">
+                                            <img src="img/<?php echo $images[0]['image_']?>">
                                        
                                     </div>
                                 </div>
                                 <div class="trumbnails">
                                     <?php foreach($images as $image){?> 
                                     <div class="trumbnail">
-                                        <img class="trumbnail_image" src="img/<?php echo $image["image"]?>" alt="">
+                                        <img class="trumbnail_image" src="img/<?php echo $image["image_"]?>" alt="">
                                     </div>
                                     <?php }?>
                                 </div>
