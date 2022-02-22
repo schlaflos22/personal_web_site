@@ -1,6 +1,21 @@
 <?php 
-    require('login.php');
-    
+  require('db.php');
+  if($_POST) {
+  $user =  get_users_data($user);
+  //var_dump($user['user_name']);
+  var_dump($_POST["login"]);
+ 
+      if( $user['user_name'] === $_POST['login'] && $user['user_password'] === $_POST['password']) {
+          
+          session_start();
+          $_SESSION['login'] = $_POST['login'];
+          $_SESSION['password'] = $_POST['password'];
+           header('Location: admin_page.php');
+         
+      } else {
+          echo('NO');
+      }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +42,7 @@
     </style>
     <body>
         <main class="">
-            <form action="login.php" method="POST" class="mt-6 col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <form action="<?php $PHP_SELF?>" method="POST" class="mt-6 col-md-6 d-flex flex-column justify-content-center align-items-center">
                 <div class="mb-3 col-md-6">
                     <label for="exampleFormControlInput1" class="form-label">Login</label>
                     <input type="text" class="form-control" name="login" id="exampleFormControlInput1" placeholder="">
@@ -39,7 +54,8 @@
                 <div class="mb-3 d-grid gap-2 col-6 mx-auto">
                     <button type="submit" class="btn btn-primary mb-3">Войти</button>
                 </div>
-            </form>      
+            </form> 
+                 
         </main>
     </body>
 </html>
