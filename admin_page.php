@@ -1,7 +1,12 @@
 <?php
-
+require('db.php');
+$user =  get_users_data($user);
 echo("This is ADMIN PAGE!Welcome!");
+session_start();
 
+    if($_SESSION['login'] !== $user['user_name'] && $_SESSION['password'] !== $user['user_password']) {
+        header('Location: admin_login_page.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +24,20 @@ echo("This is ADMIN PAGE!Welcome!");
     </head>
     
     <body>
+        <nav class="navbar navbar-dark bg-dark">
+       <a href="logout.php" class=" m-auto">Выход</a>
+        </nav>
+
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-6 mt-6">
                 <h4>Фильмы</h4>
                 <button onclick="location.href='admin_new_movie.php'">Создать новую запись</button>
-                <button>Редактировать существующую</button>
+                <button onclick="location.href='edit_movie.php'">Редактировать существующую</button>
             </div>
             <div class="col-md-6 mt-6">
                 <h4>Проекты</h4>
                 <button onclick="location.href='admin_new_project.php'">Создать новую запись</button>
-                <button>Редактировать существующую</button>
+                <button onclick="location.href='edit_project.php'"> Редактировать существующую</button>
             </div>
         </div>
     </body>
