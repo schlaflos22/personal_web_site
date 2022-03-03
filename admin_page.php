@@ -24,20 +24,23 @@ session_start();
     </head>
     
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-light mb-5" style="background-color: #e3f2fd;">
        <a href="logout.php" class=" m-auto">Выход</a>
         </nav>
 
         <div class="container d-flex flex-column mt-6">
             <div class="col-md-6 mt-6">
                 <h4>Фильмы</h4>
-                <button onclick="location.href='admin_new_movie.php'">Создать новую запись</button>
-                <button onclick="location.href='edit_movie.php'">Редактировать существующую</button>
+                <button class="btn btn-secondary" onclick="location.href='admin_new_movie.php'">Создать новую запись</button>
+                <button class="btn btn-warning" onclick="location.href='edit_movie.php'">Редактировать существующую</button>
             </div>
             <div class="col-md-6 mt-6">
                 <h4>Проекты</h4>
-                <button onclick="location.href='admin_new_project.php'">Создать новую запись</button>
-                <button onclick="location.href='edit_project.php'"> Редактировать существующую</button>
+                <button class="btn btn-secondary"  onclick="location.href='admin_new_project.php'">Создать новую запись</button>
+                <button class="btn btn-warning"  onclick="location.href='edit_project.php'"> Редактировать существующую</button>
             </div>
         </div>
+        <nav class="navbar navbar-light mt-5" style="background-color: #e3f2fd;">
+       <a href="index.php" class=" m-auto">Вернуться на сайт</a>
+        </nav>
     </body>
