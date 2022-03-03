@@ -4,23 +4,23 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #111111;
+    
     color: #DEDEDE;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:500;
     width: 100%;
 }
 .wrapper {
-    background-image: url(../img/background_image_home.png);
+    background-image: url(../img/background_alternative.png);
     background-repeat: no-repeat;
-    max-width: 1920px;
-    height: 100%;
-    margin: 0 auto;
+    background-size:cover;
+   
+    margin: 0;
 }
 .content-wrapper {
     margin: 0px 120px 0px 120px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
     margin-left: 0 auto;
     height: 100%;
     display: flex;
@@ -46,15 +46,15 @@ body {
     display: flex;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:5;
 }
 .logo {
      margin-top: 30px;
 }
 .menu ul{
     margin-top: 40px;
-    font-family: 'Lato', sans-serif;
-    font-weight:200;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
     display: flex;
     flex-wrap: wrap;
 }
@@ -68,7 +68,7 @@ body {
     color: #DEDEDE;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:400;
     padding-bottom: 5px;
     font-size: 16px;
 }
@@ -115,10 +115,7 @@ footer {
      
 }
 @media(max-width: 1440px) {
-    .wrapper {
-        background-image: url(../img/background_home_1440.png);
-        background-repeat: no-repeat;
-        width: 100%; }
+    
     .right-side {
         margin-left: 0px;
     }
@@ -134,20 +131,14 @@ footer {
     .menu ul li a{
         font-size: 14px;
     }
-    .wrapper {
-        background-image: url(../img/background_home_1024.png);
-        background-repeat: no-repeat;
-        width: 100%; 
-    }
+   
    .icon_wrapper img { 
         width: 32px;
         height: 32px;
     }
 }
 @media(max-width: 768px) {
-    .wrapper {
-        background: none;
-    }
+    
 }
 @media(max-width: 425px) {
     .content-wrapper {
