@@ -1,4 +1,13 @@
 <?php 
+require('db.php');
+require('admin_db.php');
+$user =  get_users_data($user);
+//echo("This is ADMIN PAGE!Welcome!");
+session_start();
+
+    if($_SESSION['login'] !== $user['user_name'] && $_SESSION['password'] !== $user['user_password']) {
+        header('Location: admin_login_page.php');
+    }
 // Разрешение на загрузку файлов
 ini_set('file_uploads', 'On');
  
@@ -15,16 +24,16 @@ ini_set('post_max_size', '50M');
 ini_set('upload_tmp_dir', 'home/user/temp');
  
 // Максимальный размер загружаемого файла
-ini_set('upload_max_filesize', '8M');
+ini_set('upload_max_filesize', '12M');
  
 // Максимально разрешённое количество одновременно загружаемых файлов
 ini_set('max_file_uploads', '10');
-require('db.php');
-require('admin_db.php');
+
 
 
 //echo($_POST['movie_name']);
-if($_POST && $_FILES['files']) {
+ if($_POST) {
+     
     $array_= array();
     $movie_id =get_count_of_elements();
     $id_arr = array_count_values($movie_id);
@@ -57,47 +66,28 @@ if($_POST && $_FILES['files']) {
            echo "Возможная атака с помощью файловой загрузки!\n";
         }
     }
-    ;
-  
-   
-   
-        
-     
-      
-            
-       for($i =0;$i<count($_FILES['files']);$i++) {
-       
-        
-        
-            if (!empty($_FILES['files']['name'][$i])) {
-               if (file_exists('/var/www/html/personal_web_site/img'.$_FILES['files']['name'][$i])) {
-                   echo 'Hey, File already exists at uploads/' . $_FILES['files']['name'][$i] . "\n";
-               } else {
-                
-           $uploadPath= '/var/www/html/personal_web_site/img/'."".basename($_FILES['files']['name'][$i]);
-                  if(copy($_FILES['files']['tmp_name'][$i], $uploadPath)) {
-                    echo 'File successfully uploaded to uploads/'. "</br>";
-                    //var_dump($new_id);
-                    //var_dump($file_name);
-                        $file_name = $_FILES['files']['name'][$i];
-                        //array_push($arr_photos,);
-                        
-                        add_photos_data_in_dataBase($file_name,$new_id);
-                        
-                    
-                  }
-                   
-               }
-           }
-
-       }
-       
-      
-         
-
-        
-   
     
+    for( $i =0;$i< count($_FILES['files']);$i++) {
+
+        
+    //загрузка фотографий для галлереи
+        $userFileTmp = $_FILES['files']['tmp_name'][$i];
+    
+        //Сохраним в переменной исходное имя загруженного файла
+        $file_name = $_FILES['files']['name'][$i];
+        //Путь построим от корня сайта / и заменим временное имя файла обратно на свое
+        $uploaddir = '/var/www/html/personal_web_site/img/';
+                $uploadPath = $uploaddir.basename($_FILES['files']['name'][$i]);
+        var_dump($userFileTmp);
+        add_photos_data_in_dataBase($file_name,$new_id);
+        //Если файл будет перемещен, функция вернет true
+        if(copy($userFileTmp,  $uploadPath)){
+            
+            echo "Файл корректен и был успешно перемещен.";
+        }else{
+            echo "Файл не был перемещен!";
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -117,9 +107,12 @@ if($_POST && $_FILES['files']) {
     
     <body>
         <div class="container d-flex flex-column mt-6">
+        <nav class="navbar navbar-light mb-5" style="background-color: #e3f2fd;">
+       <a href="logout.php" class=" m-auto">Выход</a>
+        </nav>
             <div class="col-md-12 mt-6">
                 <h4>Фильмы</h4>
-                <form action="<?php $PHP_SELF ?>" enctype="multipart/form-data" method="POST" class="col-md-12">
+                <form action="admin_new_movie.php" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
                     <input type="text" class="form-control mt-3" name ="movie_name" placeholder="Название">
                     <input type="file" class="form-control mt-3"  name ="movie_poster" placeholder="Постер">
@@ -131,15 +124,20 @@ if($_POST && $_FILES['files']) {
                 </div>      
                 <div class="mt-3 d-flex flex-column">
                     <h4>Загрузить фотографии в галерею</h4>
-                    <input name="files[]" type="file" multiple/>
+                    <input type="file" name="files[]" multiple/>
+                    
+                    
                 </div>
                 <div class="col-md-6 mt-3">
-                    <button type="submit">Добавить</button>
+                    <button type="submit" name="submit">Добавить</button>
                 </div>
                 </form>
                 
             </div>
-            
+            <nav class="navbar navbar-light mt-5" style="background-color: #e3f2fd;">
+                <a href="admin_page.php" class=" m-auto">На главную</a>
+            </nav>
         </div>
+       
     </body>
 </html>
