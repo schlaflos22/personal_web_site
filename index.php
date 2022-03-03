@@ -30,14 +30,27 @@
                     <div class="logo">
                         <img src="img/logo_ .png" alt="">
                     </div>
-                    <nav class="menu">
+                   
+                    <div class="menu">
                         <ul>
                             <li><a href="index.php" class="link" >Об Авторе</a></li>
                             <li><a href="filmography_main.php" class="link" >Фильмография</a></li>
                             <li><a href="projects.php" class="link">Проекты</a></li>
                             <li><a href="contacts.php" class="link">Контакты</a></li>
                         </ul>
-                    </nav>
+                    </div>
+                    <div class="mobile-menu">
+                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                            <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
+                            <div class="mobile-menu__container">
+                            <ul class="mobile-menu__list">
+                                <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
+                                <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
+                                <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
+                                <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
+                            </ul>       
+                            </div>
+                    </div>
                 </div>
                 <div class="main">
                     <div class="left-side">
@@ -46,7 +59,7 @@
                         </div>
                     <div class="right-side">
                        <!--<img src="img/camera_left_home.png" alt="" class="camera-icon">-->
-                    <img src="img/Ksenia_Roganova_and_Beriozka 2-01 1.png" alt="" class="autors_photo">
+                    <img src="img/_FREyRRAgTY-02.png" alt="" class="autors_photo">
                     </div>
                 </div>
                 <div class="biography">
