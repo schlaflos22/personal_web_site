@@ -4,20 +4,25 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #111111;
+   
     color: #DEDEDE;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight:500;
     width: 100%;
 }
-.back-wrapper {
-    max-width: 1920px;
-    margin: 0 auto;
+.wrapper {
+    background-image: url(../img/background_alternative.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    margin: 0;
 }
+
 .content-wrapper {
     margin: 0px 120px 0px 120px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
 }
 .languages {
     display: flex;
@@ -38,7 +43,7 @@ body {
     display: flex;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight: 400;
 }
 .logo {
     margin-top: 30px;
@@ -46,7 +51,7 @@ body {
 .menu ul {
     margin-top: 40px;
     font-family: 'Lato', sans-serif;
-    font-weight:200;
+    font-weight: 400;
     display: flex;
     flex-wrap: wrap;
 }
@@ -60,7 +65,7 @@ body {
     color: #DEDEDE;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
-    font-weight:200;
+    font-weight: 400;
     padding-bottom: 5px;
     font-size: 16px;
 }
@@ -82,7 +87,7 @@ body {
     flex-wrap: wrap;
 }
 h2,h3 {
-    font-weight: 200;
+    font-weight: 400;
     margin-bottom:30px;
 }
 .single-left_side {
@@ -154,7 +159,7 @@ footer {
     display: flex;
     justify-content: right;
     margin-top: 100px;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 footer p {
     font-size: 12px;
