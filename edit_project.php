@@ -1,6 +1,17 @@
 <?php
 require('db.php');
 require('admin_db.php');
+$user =  get_users_data($user);
+//echo("This is ADMIN PAGE!Welcome!");
+session_start();
+
+    if($_SESSION['login'] !== $user['user_name'] && $_SESSION['password'] !== $user['user_password']) {
+        header('Location: admin_login_page.php');
+    }
+    if(isset($_POST)) {
+      
+      delete_project($_POST['project_id']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +30,18 @@ require('admin_db.php');
     
     <body>
         <div class="container d-flex flex-column mt-6">
+          <nav class="navbar navbar-light mb-5" style="background-color: #e3f2fd;">
+            <a href="logout.php" class=" m-auto">Выход</a>
+          </nav>
             <div class="col-md-12 mt-6">
             <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">NAME</th>
-      <th scope="col">Change</th>
       <th scope="col">Delete</th>
+      <th scope="col">Change</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -34,20 +49,25 @@ require('admin_db.php');
     <?php 
      $projects = get_projects_All($projects);
      foreach($projects as $project) {
-       var_dump($project);
+      // var_dump($project);
     ?>
     <tr>
-      <th class="movie_id" scope="row"><?php echo $project['project_id']?></th>
-      <!--<td><?php echo $project['project_name']?></td>-->
+      <form action="edit_project.php" enctype="multipart/form-data" method="POST">
+      <th scope="row"><input name="project_id" value="<?php echo $project['project_id']?>" type="text" style="display:none;"><?php echo $project['project_id']?></th>
+      <td><?php echo $project['project_name']?></td>
+      <td><button type="submit">DELETE</button></td>
+      </form>
       <td><button onclick= "location.href='edit_project_single.php?id=<?php echo $project['project_id']?>'">CHANGE</button></td>
-      <td><button>DELETE</button></td>
     </tr>
     <?php }?>
   </tbody>
 </table>
                
             </div>
-            
+            <nav class="navbar navbar-light mt-5" style="background-color: #e3f2fd;">
+              <a href="admin_page.php" class=" m-auto">На главную</a>
+            </nav>
         </div>
+        
        
     </body>
