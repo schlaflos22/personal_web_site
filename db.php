@@ -31,6 +31,7 @@ function get_images_for_gallery($id){
 function get_image_id($id) {
     global $db;
     $images= $db -> query("SELECT * FROM `backstage_images` WHERE `movie_id`=$id ");
+    
     return $images;
 }
 
