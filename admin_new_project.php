@@ -21,11 +21,19 @@ ini_set('upload_max_filesize', '8M');
 ini_set('max_file_uploads', '10');
 require('db.php');
 require('admin_db.php');
+$user =  get_users_data($user);
+//echo("This is ADMIN PAGE!Welcome!");
+session_start();
+
+    if($_SESSION['login'] !== $user['user_name'] && $_SESSION['password'] !== $user['user_password']) {
+        header('Location: admin_login_page.php');
+    }
 if($_POST) {
 
     $array_= array();
   
    var_dump($array_);
+    $project_name = $_POST['project_name'];
     $project_image = $_FILES['image']['name'];
     $project_logline_h4= $_POST['logline_h4'];
     $project_logline = $_POST['logline'];
@@ -52,7 +60,7 @@ if($_POST) {
        // var_dump(copy($_FILES['image']['tmp_name'],$upload_path));
         //echo '<pre>';
         if (copy($_FILES['image']['tmp_name'],$upload_path)) {
-            array_push($array_,$project_image,$project_logline_h4,$project_logline,$project_conflict_h4,$project_conflict,$project_idea_h4,$project_idea,$project_relevance_h4,$project_relevance,$project_reason_h4,$project_reason,$project_purpose_h4, $project_purpose,$project_uniqueness_h4, $project_uniqueness);
+            array_push($array_,$project_name,$project_image,$project_logline_h4,$project_logline,$project_conflict_h4,$project_conflict,$project_idea_h4,$project_idea,$project_relevance_h4,$project_relevance,$project_reason_h4,$project_reason,$project_purpose_h4, $project_purpose,$project_uniqueness_h4, $project_uniqueness);
             var_dump($new_id);
             add_project_data_in_dataBase($array_);
            
@@ -82,10 +90,14 @@ if($_POST) {
     
     <body>
         <div class="container d-flex flex-column mt-6">
+        <nav class="navbar navbar-light mb-5" style="background-color: #e3f2fd;">
+        <a href="logout.php" class=" m-auto">Выход</a>
+            </nav>
             <div class="col-md-12 mt-6">
                 <h4>Проект</h4>
                 <form action="<?php $PHP_SELF ?>" enctype="multipart/form-data" method="POST" class="col-md-12">
                 <div class="mt-3 d-flex flex-column">
+                <input type="text" class="form-control mt-3" name ="project_name" placeholder="Название">
                     <input type="file" class="form-control mt-3" name ="image" placeholder="Изображение">
                     <input type="text" class="form-control mt-3" name ="logline_h4" placeholder="Логлайн h4">
                     <textarea type="textarea" class="form-control mt-3" name ="logline" placeholder="Логлайн"></textarea>
@@ -104,10 +116,13 @@ if($_POST) {
                     
                 </div>
                 <div class="col-md-6 mt-3">
-                    <button type="submit">Добавить</button>
+                    <button class="btn btn-success" type="submit">Добавить</button>
                 </div>
                 </form>
             </div>
             
         </div>
+        <nav class="navbar navbar-light mt-5" style="background-color: #e3f2fd;">
+       <a href="admin_page.php" class=" m-auto">На главную</a>
+        </nav>
     </body>
