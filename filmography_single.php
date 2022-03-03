@@ -15,7 +15,7 @@ $id = array_key_last($arr_);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,7 +83,7 @@ $id = array_key_last($arr_);
                             <div class="single-right_side">
                                 <h2><?php echo $movie["movie_name"]?></h2>
                                 <p><?php echo $movie["movie_description"]?></p>
-                               <iframe width="560" height="315" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                               <iframe width="60%"; height="60%" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <p><?php echo $movie["movie_awards"]?></p>
                                 <p><?php echo $movie["movie_festivals"]?></p>
                             </div>
