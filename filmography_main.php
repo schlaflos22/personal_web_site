@@ -15,9 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/filmography_main.css">
-    
 </head>
-
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
@@ -43,29 +41,25 @@
                     </div>
                     <div class="mobile-menu">
                         <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
-                            <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
-                            <div class="mobile-menu__container">
+                        <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
+                        <div class="mobile-menu__container">
                             <ul class="mobile-menu__list">
                                 <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
                                 <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
                                 <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
                                 <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
                             </ul>       
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="main">
-                    
                     <div class="movies">
-                            <?php $movies = get_movies_All();
-                            foreach($movies as $movie): ?>
-                            <div class="movie">
-                       
-                                <img src="./img/<?php echo $movie['movie_poster']?>" alt=""  onclick= "location.href='filmography_single.php?id=<?php echo $movie['movie_id']?>'" class="poster_image" id="<?php echo $movie['movie_id']?>">
-                               
-                            </div>
-                            <?php endforeach; ?>
-
+                        <?php $movies = get_movies_All();
+                        foreach($movies as $movie): ?>
+                        <div class="movie">
+                            <img src="./img/<?php echo $movie['movie_poster']?>" alt=""  onclick= "location.href='filmography_single.php?id=<?php echo $movie['movie_id']?>'" class="poster_image" id="<?php echo $movie['movie_id']?>">
+                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <footer>
@@ -74,8 +68,5 @@
            </div>
         </div>
     </div>
-    
- 
-    
-   </body>
+</body>
 </html>
