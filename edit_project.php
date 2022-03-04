@@ -11,6 +11,7 @@ session_start();
     if(isset($_POST)) {
       
       delete_project($_POST['project_id']);
+      unlink('img/'.''.$_POST['project_image'].'');
     }
 ?>
 <!DOCTYPE html>
@@ -55,6 +56,7 @@ session_start();
       <form action="edit_project.php" enctype="multipart/form-data" method="POST">
       <th scope="row"><input name="project_id" value="<?php echo $project['project_id']?>" type="text" style="display:none;"><?php echo $project['project_id']?></th>
       <td><?php echo $project['project_name']?></td>
+      <input type="hidden"name="project_image" value="<?php echo $project['project_image']?>">
       <td><button type="submit">DELETE</button></td>
       </form>
       <td><button onclick= "location.href='edit_project_single.php?id=<?php echo $project['project_id']?>'">CHANGE</button></td>
