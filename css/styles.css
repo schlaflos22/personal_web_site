@@ -4,7 +4,6 @@
 body {
     margin: 0;
     padding: 0;
-    
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight:500;
@@ -14,16 +13,12 @@ body {
     background-image: url(../img/background_alternative.png);
     background-repeat: no-repeat;
     background-size: cover;
-    
-    
     margin: 0;
 }
-
 .content-wrapper {
     margin: 0px 120px 0px 120px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    
 }
 .languages {
     display: flex;
@@ -32,7 +27,7 @@ body {
     padding-top: 50px;
 }
 .lang-wrapper {
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     width: 100px;
@@ -56,7 +51,6 @@ body {
     justify-content: flex-end;
     padding: 0 16px;
     top: 0;
-   
     left: 0;
     right: 0;
     height: 50px;
@@ -187,12 +181,6 @@ body {
    width: 100%;
    height: 100%;
 }
-.camera-icon {
-    margin-right:20px;
-    padding-bottom: 52px;
-    transform: rotate(2deg); 
-    display: none;
-}
 p.quote {
     font-family: 'Montserrat', sans-serif;
     font-weight:400;
@@ -202,13 +190,15 @@ p.quote {
     width: 620px;
 }
 .biography {
-   
-     text-align:center;
-      margin-top: 200px;
-      margin-left: 0px;
+    text-align:center;
+    margin-top: 200px;
+    margin-left: 0px;
 }
 .biography h3{
     font-weight:400;
+}
+.biography p {
+    line-height: 150%;
 }
 footer {
   display: flex;
@@ -228,19 +218,14 @@ footer {
     p.quote { 
         width: 580px;
     }
-    
-    .camera-icon {
-        margin-right: 42px;
-        padding-bottom:12px;
-        transform: rotate(10deg); 
-    }
 }
 @media(max-width:1024px) {
     .menu{
         display: none;
     }
     .mobile-menu {
-        display: flex;}
+        display: flex;
+    }
     .wrapper {
         background-image: url(../img/background_alternative.png);
         background-repeat: no-repeat;
@@ -255,41 +240,23 @@ footer {
     .biography {
         font-size: 14px;
     }
-   
-    .camera-icon {
-        margin-right: 42px;
-        padding-bottom:12px;
-        width: 100px;
-        height: 100px;
-        transform: rotate(10deg); 
-    }
 }
 @media(max-width:768px) {
-    /*.wrapper {
-        background-image:none;
-    }*/
     .menu ul li {
         padding-bottom: 20px;
     }
     .autors_photo {
         margin-top: 40px;
         margin-left: 0%;
-        
     }
     p.quote {
         margin-top: 40px;
         text-align: left;
         width: 200px;
     }
-    .camera-icon {
-        display: none;
-    }
 }
 @media(max-width:425px) {
-    /*.wrapper {
-        background-image:none;
-    }*/
-    .content-wrapper {
+   .content-wrapper {
         margin: 0px 40px 0px 40px;
     }
     .header {
@@ -303,15 +270,11 @@ footer {
     }
     .autors_photo {
         margin-left: 0%;
-        
     }
     p.quote {
         margin-top: 40px;
         text-align: left;
         width: 200px;
-    }
-    .camera-icon {
-        display: none;
     }
 }
 @media(max-width: 375px) {
