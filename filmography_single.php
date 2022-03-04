@@ -1,14 +1,9 @@
 <?php 
 require('db.php');
-
-//подключить стили
-
 $url = $_SERVER['REQUEST_URI'];
 parse_str($url, $get);
 $arr_ = array_flip($get);
 $id = array_key_last($arr_);
-
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,30 +17,9 @@ $id = array_key_last($arr_);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/filmography_single.css" type="text/css">
     <style>
-        .single_body {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-column-gap: 20px;
-            /*margin-top: 26px;*/
-        }
-        .single-left_side {
-            grid-column: auto / span 1;
-            width: 100%;
-        }
-        .single-right_side {
-            grid-column: auto / span 3;
-            width: 100%;
-        }
-        .single-left_side img {
-            width: 100%;
-            object-fit: cover;
-            height: auto;
-            /*margin-top: 0px;*/
-        }
-
-    </style>
+        
+     </style>
 </head>
-
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
@@ -61,16 +35,27 @@ $id = array_key_last($arr_);
                     <div class="logo" onclick="location.href='index.php'">
                         <img src="img/logo_ .png" alt="">
                     </div>
-                    <nav class="menu">
+                    <div class="menu">
                         <ul>
                             <li><a href="index.php" class="link" >Об Авторе</a></li>
                             <li><a href="filmography_main.php" class="link" >Фильмография</a></li>
                             <li><a href="projects.php" class="link">Проекты</a></li>
                             <li><a href="contacts.php" class="link">Контакты</a></li>
                         </ul>
-                    </nav>
+                    </div>
+                    <div class="mobile-menu">
+                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                        <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
+                        <div class="mobile-menu__container">
+                            <ul class="mobile-menu__list">
+                                <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
+                                <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
+                                <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
+                                <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
+                            </ul>       
+                        </div>
+                    </div>
                 </div>
-                
                 <div class="main">
                 <?php $movie = get_movie_by_id($id); ?>
                 
@@ -83,7 +68,7 @@ $id = array_key_last($arr_);
                             <div class="single-right_side">
                                 <h2><?php echo $movie["movie_name"]?></h2>
                                 <p><?php echo $movie["movie_description"]?></p>
-                               <iframe width="60%"; height="60%" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                               <iframe class="video_recording" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <p><?php echo $movie["movie_awards"]?></p>
                                 <p><?php echo $movie["movie_festivals"]?></p>
                             </div>
