@@ -67,7 +67,7 @@ ini_set('max_file_uploads', '10');
         }
     }
     
-    for( $i =0;$i< count($_FILES['files']);$i++) {
+    for( $i =0;$i< count($_FILES['files']['name']);$i++) {
 
         
     //загрузка фотографий для галлереи
