@@ -170,7 +170,9 @@ $id = array_key_last($arr_);
         </form>
       
         <button onclick= "location.href='delete_photos.php?id=<?php echo $movie['movie_id']?>'">Удалить фотографии из галереи</button>
-                
+       
+       <a href="add_new_image.php?id=<?php echo $id?>" class=" m-auto">Добавить новые фото</a>
+           
 </div>   
         <nav class="navbar navbar-light mt-5" style="background-color: #e3f2fd;">
        <a href="edit_movie.php" class=" m-auto">К списку фильмов</a>
