@@ -58,8 +58,6 @@ $id = array_key_last($arr_);
                 </div>
                 <div class="main">
                 <?php $movie = get_movie_by_id($id); ?>
-                
-                    <!--Сделать php вкрапления-->
                     <div class="single-content">
                         <div class="single_body">
                             <div class="single-left_side">
@@ -76,15 +74,12 @@ $id = array_key_last($arr_);
                         <?php
                         $images = get_images_for_gallery($id);
                        if ( $images ) {
-                           // var_dump($images[0]['image']);
                         ?>
                         <div class="single-footer">
                             <div id="backstage_gallery">
                                 <div class="image_slides">
                                     <div class="slide active">
-                                       
-                                            <img src="img/<?php echo $images[0]['image_']?>">
-                                       
+                                       <img src="img/<?php echo $images[0]['image_']?>">
                                     </div>
                                 </div>
                                 <div class="trumbnails">

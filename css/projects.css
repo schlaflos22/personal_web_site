@@ -274,8 +274,14 @@ footer p {
     }
 }
 @media(max-width: 768px) {
-    #btn-prev ,#btn-next {
-        display: none;
+    #btn-prev {
+        margin-left: 10px;
+        
+    }
+     #btn-next {
+        
+        margin-right:10px;
+        
     }
     .slide img{
         padding: 0px; 
@@ -300,9 +306,9 @@ footer p {
     .menu ul li {
         padding-bottom: 20px;
     }
-    #btn-prev ,#btn-next {
+    /* #btn-prev ,#btn-next {
         display: none;
-    }
+    } */
     .slide img {
         padding: 0px; 
         width: 345px;

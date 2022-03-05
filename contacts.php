@@ -56,7 +56,7 @@
                             <label for="author-phonenumber">+7-911-081-54-58</label>
                         </div>
                         <div class="icon_wrapper">
-                        <img src="img/socialemailcircularbutton_80177 1.png" alt="" id="author-email">
+                       <a href="mailto:ksu.action@mail.ru"><img src="img/socialemailcircularbutton_80177 1.png" alt="" id="author-email"></a>
                         <label for="author-email">ksu.action@mail.ru</label>
                             
                         </div>
@@ -67,7 +67,7 @@
                            <a href="https://www.instagram.com/kseniaroganova"> <img src="img/instagram_icon-icons 1.png" alt=""></a>
                         </div>
                         <div class="icon_wrapper">
-                           <!-- <a href="https://www.facebook.com/ksu.action"><img src="img/facebook_icon-icons 1.png" alt=""></a> -->
+                           <a href="https://www.facebook.com/ksu.action"><img src="img/facebook_icon-icons 1.png" alt=""></a> 
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 <?php 
 require('db.php');
 require('admin_db.php');
+
 $url = $_SERVER['REQUEST_URI'];
 parse_str($url, $get);
 $arr_ = array_flip($get);
