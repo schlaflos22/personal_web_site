@@ -1,7 +1,5 @@
 <?php 
  require('db.php');
- 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +10,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
@@ -53,16 +51,18 @@
                 </div>
                 <div class="main">
                     <div class="flex-wrapper">
-                        <div class="slider-wrapper">
+                        <div id="slider-wrapper">
                             <div id="btn-prev">
-                                <img src="./img/btn-prev.png" alt="">
+                                <img src="./img/btn-prev (5).png" alt="">
                            </div>
                             <?php
                                 $projects =  get_projects_All();
                             ?>
                             <?php foreach($projects as $project){?>
                            <div class="slide">
-                                <img src="./img/<?php echo $project["project_image"]?>" alt="">
+                               <div class="image"> 
+                                   <img src="./img/<?php echo $project["project_image"]?>" alt="">
+                                </div>
                                 <div class="img-description">
                                     <h4><?php echo $project["project_logline_h4"]?></h4>
                                     <p><?php echo $project["project_logline"]?></p>
@@ -82,7 +82,7 @@
                             </div>
                             <?php }?>
                             <div id="btn-next">
-                                <img src="./img/btn-next.png" alt="" >
+                                <img src="./img/btn-next (5).png" alt="" >
                             </div>
                         </div>
                     </div>
