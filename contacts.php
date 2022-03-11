@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/contacts.css">
 </head>
 <body>
@@ -56,9 +56,8 @@
                             <label for="author-phonenumber">+7-911-081-54-58</label>
                         </div>
                         <div class="icon_wrapper">
-                       <a href="mailto:ksu.action@mail.ru"><img src="img/socialemailcircularbutton_80177 1.png" alt="" id="author-email"></a>
-                        <label for="author-email">ksu.action@mail.ru</label>
-                            
+                            <a href="mailto:ksu.action@mail.ru"><img src="img/socialemailcircularbutton_80177 1.png" alt="" id="author-email"></a>
+                            <label for="author-email">ksu.action@mail.ru</label>
                         </div>
                         <div class="icon_wrapper">
                            <a href="https://vk.com/kseniaroganova"> <img src="img/vk_icon-icons 1.png" alt=""></a>
