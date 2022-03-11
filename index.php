@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -54,9 +54,9 @@
                         деловой атмосферы. Режиссер это тот, кто
                         ведёт за <br>собой. Он знает чуть-чуть больше, чем остальные.</p>
                         </div>
-                    <div class="right-side">
-                        <img src="img/_FREyRRAgTY-02.png" alt="" class="autors_photo">
-                    </div>
+                        <div class="right-side">
+                            <img src="img/_FREyRRAgTY-02.png" alt="" class="autors_photo">
+                        </div>
                 </div>
                 <div class="biography">
                     <h3>Автобиография</h3>
@@ -79,7 +79,7 @@
                     были, но именно они придавали дополнительный импульс, были как-бы
                     удобрением, давали еще больший рост и в то же время позволяли глубже
                     погружаться в профессию.</br>
-                    Моей дипломной работой был короткометражный фильм «Видеовыход. У
+                    Моей дипломной работой был короткометражный фильм «Видеовыход». У
                     фильма была интересная фестивальная судьба и он довольно хорошо
                     прокатился по отечественным кинофестивалям.
                     Вторым моим Мастером был Сергей Михайлович Овчаров. У него я
