@@ -14,11 +14,8 @@ $id = array_key_last($arr_);
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/filmography_single.css" type="text/css">
-    <style>
-        
-     </style>
 </head>
 <body>
     <div class="wrapper">
@@ -59,39 +56,37 @@ $id = array_key_last($arr_);
                 <div class="main">
                 <?php $movie = get_movie_by_id($id); ?>
                     <div class="single-content">
-                        <div class="single_body">
-                            <div class="single-left_side">
-                                <img src="./img/<?php echo $movie["movie_poster"]?>" alt="" id="<?php echo $movie["movie_id"]?>">
-                            </div>
-                            <div class="single-right_side">
-                                <h2><?php echo $movie["movie_name"]?></h2>
-                                <p><?php echo $movie["movie_description"]?></p>
-                               <iframe class="video_recording" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <p><?php echo $movie["movie_awards"]?></p>
-                                <p><?php echo $movie["movie_festivals"]?></p>
-                            </div>
+                        <div class="single-left_side">
+                            <img src="./img/<?php echo $movie["movie_poster"]?>" alt="" id="<?php echo $movie["movie_id"]?>">
                         </div>
-                        <?php
-                        $images = get_images_for_gallery($id);
-                       if ( $images ) {
-                        ?>
-                        <div class="single-footer">
-                            <div id="backstage_gallery">
-                                <div class="image_slides">
-                                    <div class="slide active">
-                                       <img src="img/<?php echo $images[0]['image_']?>">
+                        <div class="single-right_side">
+                            <h2><?php echo $movie["movie_name"]?></h2>
+                            <p><?php echo $movie["movie_description"]?></p>
+                            <iframe class="video_recording" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p><?php echo $movie["movie_awards"]?></p>
+                            <p><?php echo $movie["movie_festivals"]?></p>
+                            <?php
+                                $images = get_images_for_gallery($id);
+                            if ( $images ) {
+                                ?>
+                                <div class="gallery_wrapper">
+                                    <div id="backstage_gallery">
+                                        <div class="image_slides">
+                                            <div class="slide active">
+                                            <img src="img/<?php echo $images[0]['image_']?>">
+                                            </div>
+                                        </div>
+                                        <div class="trumbnails">
+                                            <?php foreach($images as $image){?> 
+                                            <div class="trumbnail">
+                                                <img class="trumbnail_image" src="img/<?php echo $image["image_"]?>" alt="">
+                                            </div>
+                                            <?php }?>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="trumbnails">
-                                    <?php foreach($images as $image){?> 
-                                    <div class="trumbnail">
-                                        <img class="trumbnail_image" src="img/<?php echo $image["image_"]?>" alt="">
-                                    </div>
-                                    <?php }?>
-                                </div>
-                            </div>
+                            <?php }?>
                         </div>
-                       <?php }?>
                     </div>
                 </div>
                 <footer>
