@@ -9,5 +9,5 @@ for(let trumbnail of trumbnailsImages) {
 function showSlideImage(event) {
     console.log(event.target.src);
     console.log(event.target.parentNode.parentNode.parentNode.children[0].children[0].children[0]);
-    event.target.parentNode.parentNode.parentNode.children[0].children[0].children[0].src = event.target.src;
+   event.target.parentNode.parentNode.parentNode.children[0].children[0].children[0].src = event.target.src;
 }
