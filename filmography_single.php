@@ -11,7 +11,7 @@ $id = array_key_last($arr_);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Document</title>
+    <title>Фильмография</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,14 +20,27 @@ $id = array_key_last($arr_);
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
-            <div class="content-wrapper">
-                <div class="languages">
-                    <div class="lang-wrapper">
-                        <span class="lang">RU </span>
-                        <p> / </p>
-                        <span class="lang"> EN</span>
+            <div class="bg"></div>
+            <div class="languages">
+                <div class="mobile-menu">
+                    <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                    <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
+                    <div class="mobile-menu__container">
+                        <ul class="mobile-menu__list">
+                            <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
+                            <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
+                            <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
+                            <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
+                        </ul>       
                     </div>
                 </div>
+                <div class="lang-wrapper">
+                    <span class="lang">RU </span>
+                    <p> / </p>
+                    <span class="lang"> EN</span>
+                </div>
+            </div>
+            <div class="content-wrapper">
                 <div class="header">
                     <div class="logo" onclick="location.href='index.php'">
                         <img src="img/logo_ .png" alt="">
@@ -40,18 +53,7 @@ $id = array_key_last($arr_);
                             <li><a href="contacts.php" class="link">Контакты</a></li>
                         </ul>
                     </div>
-                    <div class="mobile-menu">
-                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
-                        <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
-                        <div class="mobile-menu__container">
-                            <ul class="mobile-menu__list">
-                                <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
-                                <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
-                                <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
-                                <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
-                            </ul>       
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="main">
                 <?php $movie = get_movie_by_id($id); ?>
@@ -62,7 +64,7 @@ $id = array_key_last($arr_);
                         <div class="single-right_side">
                             <h2><?php echo $movie["movie_name"]?></h2>
                             <p><?php echo $movie["movie_description"]?></p>
-                            <iframe class="video_recording" src="<?php echo $movie["movie_video"]?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="<?php echo $movie["movie_video"]?>" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen;" allowfullscreen></iframe>
                             <p><?php echo $movie["movie_awards"]?></p>
                             <p><?php echo $movie["movie_festivals"]?></p>
                             <?php
