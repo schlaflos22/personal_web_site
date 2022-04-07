@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Document</title>
+    <title>Об Авторе</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -14,37 +14,38 @@
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
-            <div class="content-wrapper">
-                <div class="languages">
-                    <div class="lang-wrapper">
-                        <span class="lang">RU </span>
-                        <p> / </p>
-                        <span class="lang"> EN</span>
+            <div class="bg"></div>
+            <div class="languages">
+                <div class="mobile-menu">
+                    <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                    <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
+                    <div class="mobile-menu__container">
+                        <ul class="mobile-menu__list">
+                            <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
+                            <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
+                            <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
+                            <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
+                        </ul>       
                     </div>
                 </div>
-                <div class="header">
+                <div class="lang-wrapper">
+                    <span class="lang">RU </span>
+                    <p> / </p>
+                    <span class="lang"> EN</span>
+                </div>
+            </div>
+            <div class="content-wrapper">
+               <div class="header">
                     <div class="logo">
                         <img src="img/logo_ .png" alt="">
                     </div>
-                    <div class="menu">
+                    <div class="menu" id="menu_">
                         <ul>
                             <li><a href="index.php" class="link" >Об Авторе</a></li>
                             <li><a href="filmography_main.php" class="link" >Фильмография</a></li>
                             <li><a href="projects.php" class="link">Проекты</a></li>
                             <li><a href="contacts.php" class="link">Контакты</a></li>
                         </ul>
-                    </div>
-                    <div class="mobile-menu">
-                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
-                        <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
-                        <div class="mobile-menu__container">
-                            <ul class="mobile-menu__list">
-                                <li class="mobile-menu__item"><a href="index.php" class="mobile-menu__link">Об Авторе</a></li>
-                                <li class="mobile-menu__item"><a href="filmography_main.php" class="mobile-menu__link" >Фильмография</a></li>
-                                <li class="mobile-menu__item"><a href="projects.php" class="mobile-menu__link">Проекты</a></li>
-                                <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
-                            </ul>       
-                        </div>
                     </div>
                 </div>
                 <div class="main">
@@ -53,10 +54,10 @@
                         соблюдаться необходимый баланс тёплой, творческой и <br> 
                         деловой атмосферы. Режиссер это тот, кто
                         ведёт за <br>собой. Он знает чуть-чуть больше, чем остальные.</p>
-                        </div>
-                        <div class="right-side">
-                            <img src="img/_FREyRRAgTY-02.png" alt="" class="autors_photo">
-                        </div>
+                    </div>
+                    <div class="right-side">
+                        <img src="img/_FREyRRAgTY-02.png" alt="" class="autors_photo">
+                    </div>
                 </div>
                 <div class="biography">
                     <h3>Автобиография</h3>
@@ -104,11 +105,14 @@
                     кинематографического и театрального искусства Н.С. Михалкова.
                     </p>
                 </div>
+                <a class="up" title="Наверх">↑</a>
                 <footer>
                     <p>Copyright &copy; 2022</p>
                 </footer>
            </div>
         </div>
     </div>
+    <script src='js/active_link.js'></script>
+    <script src='js/page_up.js'></script>
 </body>
 </html>
