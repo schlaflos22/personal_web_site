@@ -44,18 +44,33 @@ prevArrow.addEventListener('click',prevSlide, false);
 let touchstartX = 0
 let touchendX = 0
 
-const slider = document.getElementById('slider-wrapper')
+let slider = document.getElementsByClassName('images')
 
 function handleGesture() {
-  if (touchendX < touchstartX) alert('swiped left!')
-  if (touchendX > touchstartX) alert('swiped right!')
+  if (touchendX < touchstartX) 
+  if(index == slides.length - 1){
+    index = 0;
+    activeSlide(index);
+    }else{
+        index++;
+        activeSlide(index);
+    }
+  if (touchendX > touchstartX) 
+  if(index == 0){
+    index == slides.length - 1;
+    activeSlide(index);
+    }else {
+        index--;
+        activeSlide(index);
+    }
 }
-
-slider.addEventListener('touchstart', e => {
+for (let slideImg of slider){
+    slideImg.addEventListener('touchstart', e => {
   touchstartX = e.changedTouches[0].screenX
 })
 
-slider.addEventListener('touchend', e => {
+slideImg.addEventListener('touchend', e => {
   touchendX = e.changedTouches[0].screenX
   handleGesture()
 })
+}
