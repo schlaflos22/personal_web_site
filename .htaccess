@@ -13,7 +13,7 @@ php_value post_max_size 50M
 php_value upload_tmp_dir home/user/temp
  
 # Максимальный размер загружаемого файла
-php_value upload_max_filesize 8M
+php_value upload_max_filesize 12M
  
 # Максимально разрешённое количество одновременно загружаемых файлов
 php_value max_file_uploads 10
