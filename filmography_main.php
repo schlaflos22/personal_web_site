@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Document</title>
+    <title>Фильмография</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -19,26 +19,8 @@
 <body>
     <div class="wrapper">
         <div class="back-wrapper">
-            <div class="content-wrapper">
-                <div class="languages">
-                    <div class="lang-wrapper">
-                        <span class="lang">RU </span>
-                        <p> / </p>
-                        <span class="lang"> EN</span>
-                    </div>
-                </div>
-                <div class="header">
-                    <div class="logo" onclick="location.href='index.php'">
-                        <img src="img/logo_ .png" alt="">
-                    </div>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="index.php" class="link" >Об Авторе</a></li>
-                            <li><a href="filmography_main.php" class="link" >Фильмография</a></li>
-                            <li><a href="projects.php" class="link">Проекты</a></li>
-                            <li><a href="contacts.php" class="link">Контакты</a></li>
-                        </ul>
-                    </div>
+            <div class="bg"></div>
+             <div class="languages">
                     <div class="mobile-menu">
                         <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
                         <label for="checkbox" class="mobile-menu__btn"><div class="mobile-menu__icon"></div></label>
@@ -50,6 +32,25 @@
                                 <li class="mobile-menu__item"><a href="contacts.php" class="mobile-menu__link">Контакты</a></li>
                             </ul>       
                         </div>
+                    </div>
+                    <div class="lang-wrapper">
+                        <span class="lang">RU </span>
+                        <p> / </p>
+                        <span class="lang"> EN</span>
+                    </div>
+                </div>
+                <div class="content-wrapper">
+                <div class="header">
+                    <div class="logo" onclick="location.href='index.php'">
+                        <img src="img/logo_ .png" alt="">
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="index.php" class="link" >Об Авторе</a></li>
+                            <li><a href="filmography_main.php" class="link" >Фильмография</a></li>
+                            <li><a href="projects.php" class="link">Проекты</a></li>
+                            <li><a href="contacts.php" class="link">Контакты</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="main">
@@ -68,5 +69,6 @@
            </div>
         </div>
     </div>
+    <script src='js/active_link.js'></script>
 </body>
 </html>
